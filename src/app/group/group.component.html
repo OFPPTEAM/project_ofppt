@@ -1,0 +1,45 @@
+<head>
+    
+</head>
+<div class="mt-5">
+<div class="bg-color ml-2 mb-5 rounded " style="float: left;">
+    <img src="{{image}}" class="imglogo rounded-circle  mt-2" alt=""><br>     
+    <h5 class="mt-3 text-info " align="center">
+    {{stagiaire.nom || uppercase}} {{stagiaire.prenom || uppercase}}</h5>
+    
+    <div>
+        <ul >
+            <h6 class="text-success mt-4" id="about">About :</h6>
+            <li style="list-style:none; font-size:smaller;"
+            class="border-bottom "><i class="fa fa-map-marker">
+            </i>{{stagiaire.adresse}}</li>
+            <li style="list-style:none; font-size:smaller;
+            "class="border-bottom" ><i class="fa fa-graduation-cap">
+            </i>{{stagiaire.filiere}}</li>
+        </ul>
+    </div>
+    <div class="mt-3">
+        <ul class="list-group list-group-flush">
+            <a id="txt" routerLink='/group/Notification'>
+                <li id="txt" class="list-group-item border-top border-bottom">
+                <i class="fa fa-comments"></i>&nbsp;&nbsp;Notifications&nbsp;&nbsp;&nbsp;
+                <span class="badge badge-success">{{notif}}</span></li>
+            </a>
+            <a id="txt" routerLink='/group/ListStagiaire'>
+                <li id="txt" class="  list-group-item border-bottom">
+                    <i class="fa fa-users" >
+                    </i>&nbsp;&nbsp;Liste Stagiares</li>
+            </a>
+            <a id="txt" routerLink='/group/ListFormateur'>
+                <li id="txt" class="list-group-item border-bottom">
+                <i class="fa fa-graduation-cap">
+                </i>&nbsp;&nbsp;Liste Des Formateurs</li>
+            </a>
+        </ul>
+    </div>
+</div>
+<div align="center" class="groupID card mb-5 mt-4 bg-dark" >
+    <h1>{{groupID}}TDI 202</h1>
+</div>
+</div>
+<router-outlet></router-outlet>

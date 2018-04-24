@@ -1,0 +1,53 @@
+.groupID{
+   width: 60%;
+   margin-left: 25%;
+   padding: 1%;
+   color: darkgrey;
+}
+
+.bg-color {
+    background-color:rgb(255, 255, 255);
+    width: 250px;
+    height: 500px;
+
+}
+
+.imglogo {
+    height: 100px;
+    width: 100px;
+    margin-left: 70px;
+
+}
+
+.text-color {
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    size: 20%;
+}
+
+.textal {
+    text-align: center;
+
+}
+#txt{
+text-decoration: none;
+color: black;
+
+}
+#txt:hover{
+background-color: darkblue;
+color: white;
+}
+
+#ctn{
+text-decoration: none;
+color: black;
+
+}
+#ctn:hover{
+color:royalblue;
+}
+#about{
+margin-left: -20px;
+
+}
