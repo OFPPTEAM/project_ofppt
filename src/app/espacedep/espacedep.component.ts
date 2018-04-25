@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
-import {EtudiantserviceService} from '../services/Etudiantservice.service';
+
+import { UtilisateurService } from './services/utilisateur.service';
 
 @Component({
   selector: 'app-espacedep',
   templateUrl: './espacedep.component.html',
   styleUrls: ['./espacedep.component.css'],
-  providers: [EtudiantserviceService]
+  providers: []  
   
 })
 export class EspacedepComponent implements OnInit {
 
-  constructor(private EtudiantserviceService:EtudiantserviceService) { }
+  constructor(private UtilisateurService:UtilisateurService) { }
 
   ngOnInit() {
   }

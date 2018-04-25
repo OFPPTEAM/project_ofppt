@@ -1,64 +1,55 @@
-<div class="jumbotron container col-md-4 mt-4">
-    
-        <h4>Entrer vos Information</h4><br>
-        
-        <div class="input-group  container"> 
-         
-          <br>
-            <input type="text" class="form-control" placeholder="User name email" 
-            aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-            </div>
-          
-    
-          <div class="input-group mt-1">
-              <input type="text" class="form-control" placeholder="Email" 
-              aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                
-                
-              </div>
-            </div>
-    
-            <div class="input-group mt-1">
-                <input type="text" class="form-control" placeholder="date naissance" 
-                aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                 
-                  
-                </div>
-              </div>
-    
-    
-              <div class="input-group mt-1">
-                  <input type="text" class="form-control" placeholder="numero" 
-                  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                  <div class="input-group-append">
-                   
-                    
-                  </div>
-                </div> </div>
-        <hr class="my-4">
-        <div class="container">
-        <div class="row">
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input ml-2" id="customCheck1">
-                <label class="custom-control-label ml-2" for="customCheck1"><span class="badge badge-success">
-                  Formateur</span></label>
-              </div>
 
-               <div class="custom-control custom-checkbox ml-2">
-                <input type="checkbox" class="custom-control-input ml-2" id="customCheck2">
-                <label class="custom-control-label ml-2" for="customCheck2"><span class="badge badge-danger">
-                  Stagaire</span></label>
-              </div>
-    </div></div>
-        <div class="container">
-        <p>vous reçevez un message sur vos email pour verifier vos compte.</p>
-        <a routerLink="/conexion" class="btn btn-primary btn-lg " href="#" role="button">Valider</a>
-      </div>
-      </div>
-    
+
+
+<form class="user-form container mt-2" #UtilisateurForm="ngForm" (ngSubmit)="onSubmit(UtilisateurForm)">
+        <div class="form-row">
+           
+         <div class="form-group col-md-6">
+                <input class="form-control" name="Cin_Utilisateur" #Cin="ngModel" [(ngModel)]="UtilisateurService.selectedUtilisateur.Cin_Utilisateur" placeholder="cin" required>
+               </div>
+        
+           <div class="form-group col-md-6">
+            <input class="form-control" name="email" #email="ngModel" [(ngModel)]="UtilisateurService.selectedUtilisateur.email" placeholder="email" required>
+           </div>
+
+
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="Password" #Password="ngModel" [(ngModel)]="UtilisateurService.selectedUtilisateur.Password" placeholder="Password" required>
+            
+           </div>
+
+
+           
+           <div class="form-group col-md-6">
+                <input class="form-control" name="pseudo" #pseudo="ngModel" [(ngModel)]="UtilisateurService.selectedUtilisateur.pseudo" placeholder="pseudo" required>
+               </div>
+
+
+               <div class="form-group col-md-6">
+                    <input class="form-control" name="Qestion" #Qestion="ngModel" [(ngModel)]="UtilisateurService.selectedUtilisateur.Qestion" placeholder="Qestion" required>
+                   </div>
+
+
+                   <div class="form-group col-md-6">
+                        <input class="form-control" name="Reponse" #Reponse="ngModel" [(ngModel)]="UtilisateurService.selectedUtilisateur.Reponse" placeholder="Reponse" required>
+                       </div>
+            
+
+
+               <div class="form-row">
+                <div class="form-group col-md-6">
+               <button [disabled]="!UtilisateurForm.valid" type="submit" class="btn btn-lg btn-block btn-info"><i class="fa fa-arrow-down"></i>Register</button>
+                </div>
+
+
+                <div class="form-group col-md-6">
+                  <button type="button" class="btn btn-lg btn-block btn-secondary" (click)='resetForm(UtilisateurForm)'>
+                      <i style="color:white" class="fa fa-redo-alt"></i>reset</button>
+                 </div>
+                
+                </div>
+        </form>               
 
 
 

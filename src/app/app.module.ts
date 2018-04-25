@@ -5,9 +5,8 @@ import {HttpModule} from '@angular/http'
 import {FormsModule} from '@angular/forms'
 
 import { Routes } from '@angular/router';
-import {ForumsService } from '../app/services/forums.service'
 
-
+import {UtilisateurService} from './espacedep/services/utilisateur.service'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -114,9 +113,25 @@ const routes: Routes = [
   {
     path: 'badge', component: BadgeComponent
   },
+
+
+
   {
-    path: 'espacedep', component: EspacedepComponent
+    path: 'espacedep', component: EspacedepComponent, children:[
+      {
+      path: '', redirectTo: '/espacedep/login', pathMatch: 'full'
+    },
+    {
+      path: 'login', component: LoginComponent
+  
+    }
+  
+  ]
+    
   },
+
+
+
   {
     path: 'espaceeta', component: EspaceetaComponent
   },
@@ -144,12 +159,14 @@ const routes: Routes = [
     path:'conexion',component:ConexionComponent
   },
   { 
-    path:'poste',component:PosteComponent},
+    path:'poste',component:PosteComponent
+  },
 
   {
     path: 'affichagechoix', component: AffichagechoixComponent
 
-  }
+  },
+  
 
 
 ];
@@ -200,7 +217,7 @@ const routes: Routes = [
     BrowserModule, RouterModule.forRoot(routes) ,HttpModule,FormsModule
 
   ],
-  providers: [],
+  providers: [UtilisateurService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
