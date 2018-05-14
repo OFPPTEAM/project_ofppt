@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {HttpModule} from '@angular/http'
-import {FormsModule} from '@angular/forms'
+import {HttpModule} from '@angular/http';
+import {FormsModule} from '@angular/forms';
 
 import { Routes } from '@angular/router';
-import {ForumsService } from '../app/services/forums.service'
+import {ForumsService } from '../app/services/forums.service';
 
 
 
@@ -39,7 +39,21 @@ import { PosteComponent } from './Disscusion/poste/poste.component';
 
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './espacedep/login/login.component';
-
+import { EtudiantserviceService } from './services/Etudiantservice.service';
+import { NotifPipe } from './../app/group/Group_Pipes/notifications.pipe';
+import { SortDate } from './../app/group/Group_Pipes/sortByDate.pipe';
+import { NotifCount } from './../app/group/Group_Pipes/notifCount.pipe';
+import { getNameFormateur } from './../app/group/Group_Pipes/formateurName.pipe';
+import { FilterTable } from './../app/group/Group_Pipes/filterTable.pipe';
+import { FilterTableFormateur } from './../app/group/Group_Pipes/filterTableFormateur.pipe';
+import { GetFiliere } from './../app/group/Group_Pipes/getFiliere.pipe';
+import { SortName } from './../app/group/Group_Pipes/sortByName.pipe';
+import { CapitalizeFirstPipe } from './../app/group/Group_Pipes/capitalizeFirst.pipe';
+import { FormateurComponent } from './group/formateur/formateur.component';
+import { FormateurService } from './services/formateur.service';
+import { GetGroupFormateur } from './group/Group_Pipes/FourmateurCinGroup.pipe';
+import { ListGroupsComponent } from './group/formateur/list-groups/list-groups.component';
+import { FilterGroupes } from './group/Group_Pipes/FourmateurFilterGroup.pipe';
 
 
 const routes: Routes = [
@@ -62,6 +76,25 @@ const routes: Routes = [
       },
       {
         path: 'ListFormateur', component: ListFormateurComponent
+      }
+    ]
+  },
+  {
+    path: 'groups', component: FormateurComponent, children: [
+      {
+        path: '', redirectTo: '/groups/Liste', pathMatch: 'full'
+      },
+      {
+        path: 'Liste', component: ListGroupsComponent
+      },
+      {
+        path: 'Notification/:id', component: NotificationComponent
+      },
+      {
+        path: 'ListStagiaire/:id', component: ListStagiaireComponent
+      },
+      {
+        path: 'ListFormateur/:id', component: ListFormateurComponent
       }
     ]
   },
@@ -192,15 +225,27 @@ const routes: Routes = [
     ChoixfiliereComponent,
     AffichagechoixComponent,
     EspacegerComponent,
-    LoginComponent
-
+    LoginComponent,
+    NotifPipe,
+    SortDate,
+    NotifCount,
+    getNameFormateur,
+    FilterTable,
+    FilterTableFormateur,
+    GetFiliere,
+    SortName,
+    CapitalizeFirstPipe,
+    FormateurComponent,
+    GetGroupFormateur,
+    ListGroupsComponent,
+    FilterGroupes
 
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes) ,HttpModule,FormsModule
 
   ],
-  providers: [],
+  providers: [EtudiantserviceService,FormateurService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
