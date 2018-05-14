@@ -2,16 +2,14 @@
     <div class="media">
         <img class="align-self-start mr-3" src="assets/img/etablissement1.png" alt="Generic placeholder image" width="300">
         <div class="media-body">
-          <h5 class="mt-0">Top-aligned media</h5>
-          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-          <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <div class="alert alert-light mt-3" role="alert" style="width:90%;">
+              <h6><span style="font-size:20px; font-style:italic;"> {{filiere}} :</span><br><br>
+                <div class="ml-5 "> <div class="ml-5 "> {{filiere | getDescription:etablissementsService.listfiliere}}.</div></div></h6>  <p></p>
+              </div>
         </div>
       </div>
 
 
-      <div class="alert alert-light mt-3 col-md-6" role="alert">
-        <h6>Nom filiere:</h6>  <p></p>
-        </div>
 
         <table class="table table-bordered bg-dark">
             <thead>
@@ -23,24 +21,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Nom Module1:</td>
-                <td>48</td>
+              <tr *ngFor="let a of etablissementsService.listModule; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{a.nom_module}}</td>
+                <td>{{a.nombre_heure}}</td>
                 <td><a routerLink="/forum/modUle/mod1" href="#">Forum</a></td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Nom Module2:</td>
-                <td>80</td>
-                <td><a routerLink="/forum/modUle/mod1" href="#">Forum</a></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td >Nom Module3:</td>
-                <td>79</td>
-                <td><a routerLink="/forum/modUle/mod1" href="#">Forum</a></td>
-              </tr>
+
             </tbody>
           </table>
 </div>

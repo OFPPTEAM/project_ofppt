@@ -8,7 +8,6 @@ import { Routes } from '@angular/router';
 import {ForumsService } from '../app/services/forums.service'
 
 
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { GroupComponent } from './group/group.component';
@@ -34,11 +33,12 @@ import { AffichagechoixComponent } from './choixvisiteur/affichagechoix/affichag
 import { ConexionComponent } from './espacedep/conexion/conexion.component';
 import { InscriptionComponent } from './espacedep/inscription/inscription.component';
 import { PosteComponent } from './Disscusion/poste/poste.component';
-
+import { EtablissementsService } from './services/etablissements.service';
 
 
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './espacedep/login/login.component';
+import { GetDescription } from './choixvisiteur/Etablissement_Pipes/getDescription.pipe';
 
 
 
@@ -134,16 +134,16 @@ const routes: Routes = [
     path: 'choixfiliere', component: ChoixfiliereComponent
   },
 
-  { 
+  {
     path:'affichagechoix',component:AffichagechoixComponent
   },
-  { 
+  {
     path:'inscription',component:InscriptionComponent
   },
-  { 
+  {
     path:'conexion',component:ConexionComponent
   },
-  { 
+  {
     path:'poste',component:PosteComponent},
 
   {
@@ -192,7 +192,8 @@ const routes: Routes = [
     ChoixfiliereComponent,
     AffichagechoixComponent,
     EspacegerComponent,
-    LoginComponent
+    LoginComponent,
+    GetDescription
 
 
   ],
@@ -200,7 +201,7 @@ const routes: Routes = [
     BrowserModule, RouterModule.forRoot(routes) ,HttpModule,FormsModule
 
   ],
-  providers: [],
+  providers: [EtablissementsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

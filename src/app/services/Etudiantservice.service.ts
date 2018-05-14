@@ -17,7 +17,7 @@ export class EtudiantserviceService {
   Etudiantlist:Etudiant[];
   constructor(private http:Http) { }
 
-  postEtudiante(etu : Utilisateur)
+  postEtudiante(etu : Etudiant)
   {
     var body =JSON.stringify(etu);
     var headerOptions=new Headers ({'Content-Type':'application/json',"Authorization":localStorage.getItem('token')});
