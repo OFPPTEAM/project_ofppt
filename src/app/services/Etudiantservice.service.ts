@@ -46,9 +46,6 @@ export class EtudiantserviceService {
     }).toPromise().then( x=> {this.group = x});
   }
 
-
-
-
   // postEtudiante(etu : Utilisateur)
   // {
   //   var body =JSON.stringify(etu);
@@ -56,6 +53,5 @@ export class EtudiantserviceService {
   //   var requestOptions=new RequestOptions({method:RequestMethod.Post,headers:headerOptions});
   //   return this.http.post('http://localhost:50204/api/user',body,requestOptions).map(p=>p.json());
   // }
-
-
+  
 }
