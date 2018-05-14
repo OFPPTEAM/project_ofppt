@@ -60,11 +60,11 @@ export class FormateurService {
       Date_discution: new Date(Date.now()),
       Sujet:body.sujet
     }
-    return this.http.post('http://localhost:50204/api/cours',value); 
+    return this.http.post('http://localhost:50204/api/cours',value).subscribe(); 
   }
 
   delete(id)
   {
-    return this.http.delete('http://localhost:50204/api/cours'+id); 
+    return this.http.delete('http://localhost:50204/api/cours/'+id).subscribe(); 
   }
 }

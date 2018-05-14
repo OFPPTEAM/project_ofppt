@@ -247,7 +247,7 @@ const routes: Routes = [
     BrowserModule, RouterModule.forRoot(routes) ,HttpModule,FormsModule
 
   ],
-  providers: [EtudiantserviceService,FormateurService],
+  providers: [EtudiantserviceService,FormateurService,EtablissementsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
