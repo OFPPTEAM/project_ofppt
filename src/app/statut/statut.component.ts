@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DiscusionService } from '../services/discusion.service';
 
 @Component({
   selector: 'app-statut',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./statut.component.css']
 })
 export class StatutComponent implements OnInit {
+  array:number;
+  constructor(private DiscusionService:DiscusionService) { }
 
-  constructor() { }
-
+secondarray:number;
   ngOnInit() {
+    this.DiscusionService.getlistdiscusion();
+    // this.array=this.;
+    
   }
+
+ 
 
 }

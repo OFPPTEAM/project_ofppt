@@ -1,0 +1,57 @@
+<div class="container mt-4" style="color:white">
+<form class="user-form" #UtilisateurForm="ngForm" (ngSubmit)="onSubmit(UtilisateurForm)">
+  <div class="form-row">
+
+   <div class="form-group col-md-6">
+          <input class="form-control" name="UserName" #UserName="ngModel" [(ngModel)]= "Utilisateur.UserName" placeholder="UserName" required>
+         </div>
+
+     <div class="form-group col-md-6">
+      <input class="form-control" name="Password" #Password="ngModel" [(ngModel)]= "Utilisateur.Password" placeholder="Password" required>
+     </div>
+
+
+  </div>
+ <div class="form-group">
+    <input class="form-control" name="nom" #nom="ngModel" [(ngModel)]= "Utilisateur.nom" placeholder="nom" required>
+  </div>
+  <div class="form-group">
+      <input class="form-control" name="prenom" #prenom="ngModel" [(ngModel)]= "Utilisateur.prenom" placeholder="prenom" required>
+    </div>
+
+
+
+     <div class="form-group ">
+          <input class="form-control" name="Cin" #Cin="ngModel" [(ngModel)]= "Utilisateur.Cin" placeholder="Cin" required>
+         </div>
+
+
+         <div class="form-group ">
+              <input  class="form-control" name="email" #email="ngModel" [(ngModel)]= "Utilisateur.email" placeholder="email"  required>
+            
+             </div>
+
+
+             <div class="form-group ">
+                  <input  class="form-control" name="Question" #Question="ngModel" [(ngModel)]="Utilisateur.Question" placeholder="Question" required>
+                 </div>
+                 <div class="form-group ">
+                  <input  class="form-control" name="reponse" #reponse="ngModel" [(ngModel)]="Utilisateur.reponse" placeholder="reponse" required>
+                 </div>
+
+
+
+         <div class="form-row">
+          <div class="form-group col-md-6">
+         <button [disabled]="!UtilisateurForm.valid" type="submit" class="btn btn-lg btn-block btn-info"><i class="fa fa-arrow-down"></i>Register</button>
+          </div>
+
+
+          <div class="form-group col-md-6">
+            <button type="button" class="btn btn-lg btn-block btn-secondary" (click)='resetForm(UtilisateurForm)'>
+                <i style="color:white" class="fa fa-redo-alt"></i>reset</button>
+           </div>
+
+          </div>
+  </form> </div>
+  <router-outlet></router-outlet>

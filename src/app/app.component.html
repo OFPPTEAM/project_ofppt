@@ -4,48 +4,54 @@
 
   <div class="image">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      
-            
-          <a routerLink="/home"  class="navbar-brand" href="#">OFPPT Team</a>
+
+
+          <a routerLink="/home" routerLinkActive="active" class="navbar-brand" href="#">&nbsp; <i class="fa fa-opera"></i>FPPT Team</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          
+
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a routerLink="/group" class="nav-link" href="#">Group <span class="sr-only">(current)</span></a>
+                <a routerLink="/group" routerLinkActive="active" class="nav-link" href="#"> <i class="fa fa-sitemap">&nbsp; Group </i> <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a routerLink="/forum" class="nav-link" href="#">Forum</a>
+                <a routerLink="/forum" routerLinkActive="active" class="nav-link" href="#"><i class="fa fa-comment"></i>&nbsp; Forum</a>
               </li>
               <li class="nav-item dropdown">
-                <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Demande
+                <a routerLinkActive="active"  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-th-large"></i> &nbsp; Demande
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a routerLink="/attestation" class="dropdown-item" href="#">Attestation D'étudiant(e)</a>
-                  <a routerLink="/badge" class="dropdown-item" href="#">Demande du badge</a>
+                  <a routerLink="/attestation" routerLinkActive="active" class="dropdown-item" href=""><i class="fa fa-wpforms"></i>  Attestation D'étudiant(e)</a>
+                  <a routerLink="/badge" routerLinkActive="active" class="dropdown-item" href=""><i class="fa fa-id-badge"></i>
+                    Demande du badge</a>
+                    <a routerLink="/CV" routerLinkActive="active" class="dropdown-item" href=""><i class="fa fa-id-badge"></i>
+                    Rédiger Curriculum vitae personel.
+                    </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Contacter nous</a>
+
                 </div>
               </li>
               <li class="nav-item">
-                <a routerLink="/contact" class="nav-link " href="#">Contacter nous.</a>
+                <a routerLink="/contact" routerLinkActive="active" class="nav-link " href="#"><i class="fa fa-envelope"></i>&nbsp; Contacter nous.</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/nous" routerLinkActive="active" class="nav-link " href="#"><i class="fa fa-users"></i>&nbsp; Qui nous somme.</a>
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-user-circle"></i></button>
-             
+     <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+              <button [ngClass]="totalclass" class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-user-circle" (click)="Logout()"></i></button>
+
             </form>
           </div>
         </nav>
 
- <router-outlet></router-outlet> 
- 
+ <router-outlet></router-outlet>
 
-      
 
-        
-  
+
+
+

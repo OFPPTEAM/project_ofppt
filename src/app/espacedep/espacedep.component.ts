@@ -1,18 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-
-import { UtilisateurService } from './services/utilisateur.service';
-
 @Component({
   selector: 'app-espacedep',
   templateUrl: './espacedep.component.html',
-  styleUrls: ['./espacedep.component.css'],
-  providers: []  
-  
+  styleUrls: ['./espacedep.component.css']
 })
 export class EspacedepComponent implements OnInit {
 
-  constructor(private UtilisateurService:UtilisateurService) { }
+  constructor() { }
 
   ngOnInit() {
   }

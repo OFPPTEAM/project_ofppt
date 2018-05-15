@@ -1,10 +1,12 @@
 export class Utilisateur {
-
-      Cin_Utilisateur:string;
-      Password: string; 
-      email:string;
-      Qestion :Number ;
-      Reponse :string;
-      pseudo:string;
+        
+         UserName:string ;
+        Password:string ;
+         nom:string;
+        prenom:string;
+        Cin:string ;
+        email: string;
+        Question :string;
+        reponse:string 
 
 }

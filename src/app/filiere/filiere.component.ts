@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
+import { ForumsService } from '../services/forums.service';
 
 @Component({
   selector: 'app-filiere',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiliereComponent implements OnInit {
 
-  constructor() { }
+  term:string='';
 
-  ngOnInit() {
+  constructor(private ForumsService:ForumsService) { 
+    
   }
 
+  ngOnInit() {
+ console.log(this.term);
+  }
+
+
+  
+   
 }

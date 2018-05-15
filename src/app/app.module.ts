@@ -6,7 +6,7 @@ import {FormsModule} from '@angular/forms'
 
 import { Routes } from '@angular/router';
 
-import {UtilisateurService} from './espacedep/services/utilisateur.service'
+import {UtilisateurService} from './services/utilisateur.service'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -21,7 +21,6 @@ import { StatutComponent } from './statut/statut.component';
 import { AttestationComponent } from './attestation/attestation.component';
 import { BadgeComponent } from './badge/badge.component';
 import { EspaceetaComponent } from './espaceeta/espaceeta.component';
-import { EspacedepComponent } from './espacedep/espacedep.component';
 import { EspacegerComponent } from './espaceger/espaceger.component';
 import { ConfirmeComponent } from './Validation/confirme/confirme.component';
 import { ListStagiaireComponent } from './group/list-stagiaire/list-stagiaire.component';
@@ -30,20 +29,27 @@ import { NotificationComponent } from './group/notification/notification.compone
 import { ChoixetablisementComponent } from './choixvisiteur/choixetablisement/choixetablisement.component';
 import { ChoixfiliereComponent } from './choixvisiteur/choixfiliere/choixfiliere.component';
 import { AffichagechoixComponent } from './choixvisiteur/affichagechoix/affichagechoix.component';
-import { ConexionComponent } from './espacedep/conexion/conexion.component';
-import { InscriptionComponent } from './espacedep/inscription/inscription.component';
 import { PosteComponent } from './Disscusion/poste/poste.component';
-
-
-
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './espacedep/login/login.component';
+import { SigninComponent } from './utilisateur/signin/signin.component';
+import { SignupComponent } from './utilisateur/signup/signup.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { EspacedepComponent} from "./espacedep/espacedep.Component";
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './auth/auth.guard';
+import { CvComponent } from './CV/cv/cv.component';
+import { NousComponent } from './nous/nous.component';
+import { DiscusionService } from './services/discusion.service';
+import { FilterCours } from './cours/mod1/filterCours.pipe';
+import { FilterMCours } from './forum/mod-ule/filterCours.pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { CommentServiceService } from './services/comment.service';
 
 
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/home', pathMatch: 'full'
+    path: '', redirectTo: '/home', pathMatch: 'full',canActivate:[AuthGuard]
   },
   {
     path: 'home', component: HomeComponent
@@ -64,52 +70,59 @@ const routes: Routes = [
       }
     ]
   },
+
+
+
+
   {
     path: 'demande', component: DemandeComponent
   },
+
+
+
   {
+
+
     path: 'forum', component: ForumComponent, children: [
       {
         path: '', redirectTo: '/forum/filiere', pathMatch: 'full'
       },
-    {
+     
+      {
+        path: 'module', component: ModUleComponent, children: [
+      //     {
+      //   path: 'forum',loadChildren:'app/module/cours', data: { preload: true }
+      // },
+          {
+            path: 'cours', component: Mod1Component, data: { preload: true }
+          }
+        ]
+      },
+
+      {
        path: 'filiere', component: FiliereComponent , children: []
     },
     {
         path: 'statut', component: StatutComponent
     },
-    {
-        path: 'modUle', component: ModUleComponent, children: [
-        {
-            path: 'mod1', component: Mod1Component
-        }
-      ]
-    }
+      
+      { 
+        path:'poste',component:PosteComponent
+      },
+    
+
    ]
   },
 
-      {
-        path: '', redirectTo: '/forum/filiere', pathMatch: 'full'
-      },
-      {
-        path: 'filiere', component: FiliereComponent , children: []
-      },
-      {
-            path: 'statut', component: StatutComponent
-      },
-      {
-        path: 'modUle', component: ModUleComponent, children: [
-          {
-            path: 'mod1', component: Mod1Component
-          }
-        ]
-      },
+
   {
     path: 'contact', component: ContactComponent
   },
+
   {
     path: 'attestation', component: AttestationComponent
   },
+
   {
     path: 'badge', component: BadgeComponent
   },
@@ -118,15 +131,32 @@ const routes: Routes = [
 
   {
     path: 'espacedep', component: EspacedepComponent, children:[
+
       {
-      path: '', redirectTo: '/espacedep/login', pathMatch: 'full'
+      path: '', redirectTo: '/espacedep/utilisateur/Signin', pathMatch: 'full'
     },
+
     {
-      path: 'login', component: LoginComponent
+      path: 'utilisateur', component: UtilisateurComponent,children:[
   
-    }
+   
+    {
+      path: 'Signin', component: SigninComponent
+      
+    },
+
+
+    {
+      path: 'Signup', component: SignupComponent
+  
+    } 
   
   ]
+   },
+  
+   
+  ]
+
     
   },
 
@@ -152,21 +182,20 @@ const routes: Routes = [
   { 
     path:'affichagechoix',component:AffichagechoixComponent
   },
-  { 
-    path:'inscription',component:InscriptionComponent
-  },
-  { 
-    path:'conexion',component:ConexionComponent
-  },
-  { 
-    path:'poste',component:PosteComponent
-  },
 
   {
     path: 'affichagechoix', component: AffichagechoixComponent
 
   },
-  
+  {
+    path:'confirme',component:ConfirmeComponent
+  },
+  {
+    path:'CV',component:CvComponent
+  },
+  {
+    path:'nous',component:NousComponent
+  }
 
 
 ];
@@ -191,15 +220,11 @@ const routes: Routes = [
     EspacedepComponent,
     EspacegerComponent,
     ConfirmeComponent,
-
     ChoixetablisementComponent,
     ChoixfiliereComponent,
     AffichagechoixComponent,
     EspacegerComponent,
-    ConexionComponent,
-    InscriptionComponent,
     PosteComponent,
-
     ListStagiaireComponent,
     ListFormateurComponent,
     NotificationComponent,
@@ -209,15 +234,21 @@ const routes: Routes = [
     ChoixfiliereComponent,
     AffichagechoixComponent,
     EspacegerComponent,
-    LoginComponent
+    UtilisateurComponent,
+    SigninComponent,
+    SignupComponent,
+    CvComponent,
+    NousComponent,
+    FilterCours,
+    FilterMCours
 
 
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes) ,HttpModule,FormsModule
+    BrowserModule, RouterModule.forRoot(routes) ,HttpModule,FormsModule,HttpClientModule,NgxPaginationModule
 
   ],
-  providers: [UtilisateurService],
+  providers: [UtilisateurService,AuthGuard,DiscusionService,CommentServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
