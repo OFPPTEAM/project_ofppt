@@ -1,0 +1,29 @@
+
+<div class="navbar bg-dark" style="width: 60%; margin-left: 25%;" *ngIf="test">
+    <h2 class="text-light">Groupe: {{IdGroup}}</h2>
+    <a class= "p-2 txt " [routerLink]="['/groups/Notification/'+IdGroup]" 
+        routerLinkActive="router-link-active">Notifications 
+        <span class="badge badge-success">{{data.notifications | notifCount:IdGroup}}</span>
+      </a>
+    <a class= "p-2 txt" [routerLink]="['/groups/ListStagiaire/'+IdGroup]" 
+        routerLinkActive="router-link-active">Liste Stagiares</a>
+    <a class= "p-2 txt" [routerLink]="['/groups/ListFormateur/'+IdGroup]" 
+        routerLinkActive="router-link-active">Liste Formateurs</a>
+</div>
+
+<table class="table" style="width: 60%; margin-left: 25%;">
+    <thead class="bg-dark">
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Date De Naissance</th>
+      </tr>
+    </thead>
+    <tbody class="bg-light">
+      <tr *ngFor="let item of data.stagiaires | filterTable:IdGroup | SortByName" >
+        <td>{{item.nom | capitalizeFirst}}</td>
+        <td>{{item.prenom | capitalizeFirst}}</td>
+        <td>{{item.datenaiss | date:"dd/MM/yyyy"}}</td>
+      </tr>
+    </tbody>
+  </table>

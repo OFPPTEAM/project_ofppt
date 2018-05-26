@@ -1,0 +1,17 @@
+.txt{
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    background-color: darkcyan;
+    border-radius: 5%;
+}
+
+.txt:hover{
+    background-color: white;
+    color: darkcyan;
+}
+
+.router-link-active{
+    color: white;
+    background-color: darkturquoise;
+}

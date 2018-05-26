@@ -1,15 +1,15 @@
 <div class="mx-auto bg-dark"  >
   <div class="mt-5">
     <div class="jumbotron container col-md-6 mt-5">
-        <select class="form-control">
-            <option *ngFor="let item of etafilier | async" >{{item.ville |json}}</option>
+      <h5><label>Veuillez choisir votre Region :</label></h5>
+        <select  class="form-control" [(ngModel)]="choix" (click)=verifierChoix() >
+            <option  *ngFor="let a of listregion"  >{{a}}</option>
           </select>
           <div class="mt-5 ml-5">
-
-          <input routerLink="/choixetablisement" type="button" value="Ignore" class="btn btn-secondary">
-            <input routerLink="/choixetablisement" type="button" value="Suivant" class="btn btn-primary">
+          <input routerLink="/choixetablisement" type="button" value="Ignore" class="btn btn-secondary" *ngIf="Verifie" >
+          <input [routerLink]="['/choixetablisement',{fou:choix}]" type="button" value="Suivant" class="btn btn-primary"
+            *ngIf="!Verifie">
            </div>
-          </div></div>
 </div>
 
-<router-outlet></router-outlet>
+<router-outlet ></router-outlet>

@@ -1,13 +1,13 @@
 <div class="mx-auto bg-dark"  >
   <div class="mt-5">
     <div class="jumbotron container col-md-6 mt-5">
-        <select class="form-control">
-            <option>choix Etablisement</option>
+        <h5><label>Veuillez choisir une Etablisement :</label></h5>
+
+        <select class="form-control" [(ngModel)]="Nometabl">
+            <option *ngFor="let a of etablissementsService.listetablis" > {{a.NomEtablissement}}</option>
           </select>
           <div class="mt-5 ml-5">
-        
-          
-            <input routerLink="/choixfiliere" type="button" value="Suivant" class="btn btn-primary">
+            <input [routerLink]="['/choixfiliere',{choix:Nometabl}]" type="button" value="Suivant" class="btn btn-primary">
            </div>
           </div></div>
 </div>

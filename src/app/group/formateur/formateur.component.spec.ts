@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { EspaceetaComponent } from './espaceeta.component';
 
-describe('EspaceetaComponent', () => {
-  let component: EspaceetaComponent;
-  let fixture: ComponentFixture<EspaceetaComponent>;
+import { FormateurComponent } from './formateur.component';
+
+describe('FormateurComponent', () => {
+  let component: FormateurComponent;
+  let fixture: ComponentFixture<FormateurComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EspaceetaComponent ]
+      declarations: [ FormateurComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EspaceetaComponent);
+    fixture = TestBed.createComponent(FormateurComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

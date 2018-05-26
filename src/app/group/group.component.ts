@@ -1,4 +1,6 @@
+import { EtudiantserviceService } from './../services/Etudiantservice.service';
 import { Component, OnInit } from '@angular/core';
+import { FormateurService } from '../services/formateur.service';
 
 @Component({
   selector: 'app-group',
@@ -7,12 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupComponent implements OnInit {
 
-  data = Date.now();
-  stagiaire = { nom: '', prenom: '', filiere: '', image: '', adresse: ''};
-  stagiaires = [];
-  formateurs = [];
+  CinUser = 'AA475896';
+  test = false;
+  IdGroup = 1;
 
-  constructor() { }
+  constructor(
+    private data: EtudiantserviceService,
+    private dataF: FormateurService
+  ) { 
+    this.test = this.dataF.getTest();
+    this.data.getUser(this.CinUser);
+    this.data.getNotifications();
+    this.data.getGroups();
+  }
 
   ngOnInit() {
   }

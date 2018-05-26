@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { EtablissementsService } from '../services/etablissements.service';
 
 @Component({
   selector: 'app-espaceeta',
@@ -8,20 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EspaceetaComponent implements OnInit {
 
- 
-  constructor( ) {
+choix:string='choix';
+Verifie:boolean;
+listregion=['choix','Nord','Sud'];
+
+  constructor(private etablissementsService:EtablissementsService) {
 
   }
 
   ngOnInit() {
-    // this.etabliservice.getetablissement().subscribe(etafilier => {
-    //   this.etafilier = etafilier;
-    // this.etabliservice.getetaFiliere().subscribe(etafilier => {
-    //     this.etafilier = etafilier;
-    // this.etabliservice.getfiliere().subscribe(etafilier => {
-    //       this.etafilier = etafilier;
-      // console.log(this.etafilier);
-    // });
   }
 
+  verifierChoix()
+  {
+    if(this.choix=='Choix'){ this.Verifie=true;}
+    else{ this.Verifie=false;}
+  }
 }

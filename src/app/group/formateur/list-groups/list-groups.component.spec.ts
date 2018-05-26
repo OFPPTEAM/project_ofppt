@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { EspaceetaComponent } from './espaceeta.component';
 
-describe('EspaceetaComponent', () => {
-  let component: EspaceetaComponent;
-  let fixture: ComponentFixture<EspaceetaComponent>;
+import { ListGroupsComponent } from './list-groups.component';
+
+describe('ListGroupsComponent', () => {
+  let component: ListGroupsComponent;
+  let fixture: ComponentFixture<ListGroupsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EspaceetaComponent ]
+      declarations: [ ListGroupsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EspaceetaComponent);
+    fixture = TestBed.createComponent(ListGroupsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
