@@ -1,17 +1,16 @@
-<div *ngIf="test">
+<div *ngIf="isFormateur">
   <div class="mt-5">
     <div class="bg-color ml-2 mb-5 rounded " style="float: left;">
       <img src="{{data.Formateur.image}}" class="imglogo rounded-circle  mt-2" alt=""><br>     
-      <h5 class="mt-3 text-info " align="center">
-        <!-- use capitalizeFirst pipe -->
-      {{data.Formateur.nom | capitalizeFirst}} {{data.Formateur.prenom | capitalizeFirst}}</h5>
+      <h5 class="mt-3 text-info " align="center">{{data.Formateur.Nom | capitalizeFirst}}</h5>
+      <h5 class="mt-3 text-info " align="center">{{data.Formateur.Prenom | capitalizeFirst}}</h5>
       <div>
           <ul>
               <h6 class="text-success mt-4" id="about">About :</h6>
               <li style="list-style:none; font-size:smaller;"
-              class="border-bottom "><b>Date Naissance: </b>{{data.Formateur.date_Naissance | date:'dd/MM/yyyy'}}</li>
+              class="border-bottom "><b>Date Naissance: </b>{{data.Formateur.DateNaissance | date:'dd/MM/yyyy'}}</li>
               <li style="list-style:none; font-size:smaller;
-              "class="border-bottom"><b>Profile: </b>{{data.Formateur.profil}}</li>
+              "class="border-bottom"><b>Profile: </b>{{data.Formateur.Profil}}</li>
           </ul>
           <!-- <ul>
               <h6 class="text-success mt-4" id="about">Vous groups :</h6>
@@ -29,7 +28,7 @@
 
 
   
-  <div *ngIf="!test" class="card m-5 mx-auto p-5" style="width: 50%" align="center">
+  <div *ngIf="!isFormateur" class="card m-5 mx-auto p-5" style="width: 50%" align="center">
       <h1>404</h1>
       <h2 class="float-right ">page est introuvable</h2>
   </div>

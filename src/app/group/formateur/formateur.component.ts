@@ -9,10 +9,10 @@ import { FormateurService } from '../../services/formateur.service';
 export class FormateurComponent implements OnInit {
 
   CinUser = 'BF547857';
-  test = false;
+  isFormateur = false;
 
   constructor(private data: FormateurService) {
-    this.test = this.data.getTest();
+    this.isFormateur = this.data.checkFormateur();
     this.data.getFormateur(this.CinUser);
     this.data.getNotifications();
   }

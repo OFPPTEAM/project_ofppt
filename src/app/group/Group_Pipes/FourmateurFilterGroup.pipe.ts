@@ -9,7 +9,7 @@ export class FilterGroupes implements PipeTransform {
             return array;
         }
         return array.filter(function (x){
-            return x.nom_filiere.toLowerCase().includes(term.toLowerCase());
+            return x.NomFiliere.toLowerCase().includes(term.toLowerCase());
         });
     }
     

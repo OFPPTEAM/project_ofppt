@@ -10,17 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListFormateurComponent implements OnInit {
   
-  IdGroup=2;
-  test = false;
+  IdGroup='TDI202';
+  isFormateur = false;
 
   constructor(
     private data: EtudiantserviceService,
     private active: ActivatedRoute,
     private dataF: FormateurService
   ) {
-    this.test = this.dataF.getTest();
-    if(this.test) {
-      this.IdGroup = parseInt(this.active.snapshot.params['id']);
+    this.isFormateur = this.dataF.checkFormateur();
+    if(this.isFormateur) {
+      this.IdGroup = this.active.snapshot.params['id'];
     }
     this.data.getFormateurs();
     this.data.getNotifications();

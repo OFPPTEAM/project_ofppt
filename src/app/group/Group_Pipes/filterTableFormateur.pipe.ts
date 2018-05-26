@@ -6,7 +6,7 @@ export class FilterTableFormateur implements PipeTransform {
 
     transform(table: any[], id: any, array: any[]): any[] {
         table = table.filter(x => array.some(y => 
-            (y.cin_Formateur === x.cin_Formateur) && (y.groupID === id)));
+            (y.CinFormateur === x.CinFormateur) && (y.GroupID === id)));
         return table;
     }
 

@@ -17,11 +17,11 @@
     <tbody class="bg-light">
       <tr *ngFor="let item of data.Groups | filterGroupes:term">
         <th scope="col">
-          <a [routerLink]="['/groups/Notification/'+item.groupID]" 
-          routerLinkActive="router-link-active" style="text-decoration: none" >Groupe: {{item.groupID}}</a>
+          <a [routerLink]="['/groups/Notification/'+item.GroupID]" 
+          routerLinkActive="router-link-active" style="text-decoration: none">{{item.GroupID}}</a>
         </th>
-        <td>{{item.nom_filiere}}</td>
-        <td>{{item.groupAnnee}}</td>
+        <td>{{item.NomFiliere}}</td>
+        <td>{{item.GroupAnnee}}</td>
       </tr>
     </tbody>
   </table>

@@ -1,19 +1,19 @@
-<div *ngIf="!test">
+<div *ngIf="!isFormateur">
 <div class="mt-5">
 <div class="bg-color ml-2 mb-5 rounded " style="float: left;">
-    <img src="{{data.user.image}}" class="imglogo rounded-circle  mt-2" alt=""><br>     
+    <img src="{{data.user.Image}}" class="imglogo rounded-circle  mt-2" alt=""><br>     
     <h5 class="mt-3 text-info " align="center">
-    {{data.user.nom | capitalizeFirst}} {{data.user.prenom | capitalizeFirst}}</h5>
+    {{data.user.Nom | capitalizeFirst}} {{data.user.Prenom | capitalizeFirst}}</h5>
     
     <div>
         <ul>
             <h6 class="text-success mt-4" id="about">About :</h6>
             <li style="list-style:none; font-size:smaller;"
             class="border-bottom "><i class="fa fa-map-marker">
-            </i>{{data.user.addresse}}</li>
+            </i>{{data.user.Adresse}}</li>
             <li style="list-style:none; font-size:smaller;
             "class="border-bottom" ><i class="fa fa-graduation-cap">
-            </i>{{data.user.groupID | getFiliere: data.group}}</li>
+            </i>{{data.user.GroupID | getFiliere: data.group}}</li>
         </ul>
     </div>
     <div class="mt-3">
@@ -45,7 +45,7 @@
 </div>
 
 
-<div *ngIf="test" class="card m-5 mx-auto p-5" style="width: 50%" align="center">
+<div *ngIf="isFormateur" class="card m-5 mx-auto p-5" style="width: 50%" align="center">
     <h1>404</h1>
     <h2 class="float-right ">page est introuvable</h2>
 </div>

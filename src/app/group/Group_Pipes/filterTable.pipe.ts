@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterTable implements PipeTransform {
 
     transform(table: any[], id: any): any[] {
-        table = table.filter(x => x.groupID === id);
+        table = table.filter(x => x.GroupID === id);
         return table;
     }
 

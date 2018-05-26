@@ -7,12 +7,12 @@ import { FormateurService } from './services/formateur.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  test = false;
+  isFormateur = false;
   title = 'app';
 
   constructor(
     private dataF: FormateurService
   ){
-    this.test = this.dataF.getTest();
+    this.isFormateur = this.dataF.checkFormateur();
   }
 }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormateurService } from './../../services/formateur.service';
 import { EtudiantserviceService } from './../../services/Etudiantservice.service';
 import { ActivatedRoute } from '@angular/router';
-import { Cours } from '../../services/etudiant.model';
 
 @Component({
   selector: 'app-notification',
@@ -11,18 +10,18 @@ import { Cours } from '../../services/etudiant.model';
 })
 export class NotificationComponent implements OnInit {
 
-  IdGroup=1;
-  test = false;
+  IdGroup='TDI202';
+  isFormateur = false;
   addNotif = false;
   formateur = "BF547857";
   term = "";
 
   newItem = {
-    cin_Formateur:"BF547857",
-    groupID:2,
-    groupAnnee:"2017/2018",
-    date_discution: new Date(Date.now()),
-    sujet:""
+    CinFormateur:"BF547857",
+    GroupID:"TDI202",
+    GroupAnnee:"2017/2018",
+    DateDiscution: new Date(Date.now()),
+    Sujet:""
   }
 
   arrayNotif : any[] = [];
@@ -32,9 +31,9 @@ export class NotificationComponent implements OnInit {
     private active: ActivatedRoute,
     private dataF: FormateurService
   ) {
-    this.test = this.dataF.getTest();
-    if(this.test) {
-      this.IdGroup = parseInt(this.active.snapshot.params['id']);
+    this.isFormateur = this.dataF.checkFormateur();
+    if(this.isFormateur) {
+      this.IdGroup = this.active.snapshot.params['id'];
     }
     this.data.getNotifications();
     this.data.getFormateurs();
@@ -47,9 +46,9 @@ export class NotificationComponent implements OnInit {
     }, 1000);
   }
 
-  filterTable = (table:any[], id:any) => { return table.filter(x => x.groupID === id);}
+  filterTable = (table:any[], id:any) => { return table.filter(x => x.GroupID === id);}
   sortByDate = (table: any[]) => { return table.sort((a:any, b:any) =>
-    new Date(b.date_discution).getTime() - new Date(a.date_discution).getTime());}
+    new Date(b.DateDiscution).getTime() - new Date(a.DateDiscution).getTime());}
 
   activeAddNotif(){
     this.addNotif = true;
@@ -61,15 +60,16 @@ export class NotificationComponent implements OnInit {
   }
 
   addNotification(s:string){
-    this.newItem.sujet = s;
+    this.newItem.Sujet = s;
     this.dataF.poste(this.newItem);
     this.arrayNotif.unshift(this.newItem);
     this.disactiveAddNotif();
   }
   
   deleteNotification(i){
+    console.log(i.DateDiscution);
     const index: number = this.arrayNotif.indexOf(i);
-    this.dataF.delete(i.date_discution);
+    this.dataF.delete(i.Sujet);
     if (index !== -1) {
         this.arrayNotif.splice(index, 1);
     }

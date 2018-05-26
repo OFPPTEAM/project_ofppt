@@ -10,14 +10,14 @@ import { FormateurService } from '../services/formateur.service';
 export class GroupComponent implements OnInit {
 
   CinUser = 'AA475896';
-  test = false;
-  IdGroup = 1;
+  isFormateur = false;
+  IdGroup = 'TDI202';
 
   constructor(
     private data: EtudiantserviceService,
     private dataF: FormateurService
   ) { 
-    this.test = this.dataF.getTest();
+    this.isFormateur = this.dataF.checkFormateur();
     this.data.getUser(this.CinUser);
     this.data.getNotifications();
     this.data.getGroups();

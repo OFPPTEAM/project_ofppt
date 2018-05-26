@@ -12,10 +12,10 @@ export class Etudiant {
         
 }
 
-export class Cours {
-  Cin_Formateur:string;
-  GroupID:number;
-  GroupAnnee:string;
-  Date_discution:Date;
-  Sujet:string
-}
+// export class Cours {
+//   Cin_Formateur:string;
+//   GroupID:number;
+//   GroupAnnee:string;
+//   Date_discution:Date;
+//   Sujet:string
+// }
