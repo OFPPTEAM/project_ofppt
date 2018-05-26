@@ -8,8 +8,8 @@ export class GetDescription implements PipeTransform{
   transform (value:string, array:any[]): string {
     let D;
     array.forEach(x=>{
-      if(x.nom_filiere === value){
-        D = x.discription;
+      if(x.Nomfiliere === value){
+        D = x.Discription;
       }
     });
     return D;

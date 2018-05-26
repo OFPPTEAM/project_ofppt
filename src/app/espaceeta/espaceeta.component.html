@@ -2,14 +2,12 @@
   <div class="mt-5">
     <div class="jumbotron container col-md-6 mt-5">
       <h5><label>Veuillez choisir votre Region :</label></h5>
-        <select class="form-control" [(ngModel)]="choix" (click)=verifierChoix() >
-            <option  >Choix</option>
-            <option  >Nord</option>
-            <option  >Sud</option>
+        <select  class="form-control" [(ngModel)]="choix" (click)=verifierChoix() >
+            <option  *ngFor="let a of listregion"  >{{a}}</option>
           </select>
           <div class="mt-5 ml-5">
           <input routerLink="/choixetablisement" type="button" value="Ignore" class="btn btn-secondary" *ngIf="Verifie" >
-            <input [routerLink]="['/choixetablisement',{fou:choix}]" type="button" value="Suivant" class="btn btn-primary"
+          <input [routerLink]="['/choixetablisement',{fou:choix}]" type="button" value="Suivant" class="btn btn-primary"
             *ngIf="!Verifie">
            </div>
 </div>

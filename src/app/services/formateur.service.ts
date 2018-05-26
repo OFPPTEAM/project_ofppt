@@ -40,13 +40,13 @@ export class FormateurService {
       return data.json();
     }).toPromise().then( x=> {this.Stagiaires = x})
   }
-  
+
   getFormateurs(){
     this.http.get('http://localhost:52195/api/formateurs/').map((data:Response)=>{
       return data.json();
     }).toPromise().then( x=> {this.Formateurs = x});
   }
-  
+
   addNotification(notif: string){
   }
   

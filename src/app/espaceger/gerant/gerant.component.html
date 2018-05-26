@@ -1,0 +1,48 @@
+ 
+<div class="mt-5">
+<div class="bg-color ml-2 mb-5 rounded " style="float: left;"> 
+     <h5 class="mt-3 text-info " align="center">{{data.Etablissements | getGerant:nomE}}</h5>
+   
+    <div class="mt-3">
+        <ul class=" list-group list-group-flush ">
+
+              <li id="txt" class="border-bottom list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a id="txt" routerLink="/gerant/notificationger" >
+             <i class="fa fa-comments"></i>&nbsp;&nbsp;Notifications
+              <span class="badge badge-danger">{{data.Demandes | NbNotification:nomE}}</span></a> </li>       
+
+
+            <a id="txt"  >
+                <li id="txt"  class="border-bottom list-group-item" data-toggle="collapse" data-target="#navbarToggleExternalContent1" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-graduation-cap"></i>&nbsp;Information de Stagiaire <i class="fa fa-caret-down"></i>
+              </li>
+            </a>
+            <ul class="collapse  nav-tabs" id="navbarToggleExternalContent1">
+                     <li id="txt" [routerLinkActiveOptions]="{exact:true}"  routerLinkActive="active"style="margin-left:-40px;margin-bottom:8px;padding:8px; padding-left:30px;" class=""> <a id="txt" routerLink="/gerant/ajouterstag" ><i class="fa fa-user-plus"></i>&nbsp; Ajouter un Stagiaire</a></li>
+
+                   <li id="txt" [routerLinkActiveOptions]="{exact:true}" style="margin-left:-40px;margin-bottom:8px;padding:8px;padding-left:30px;"routerLinkActive="active" >   <a  id="txt" routerLink="/gerant/filterstag" ><i class="fa fa-info-circle"></i>&nbsp; Détails de l'etudiant</a></li>
+                    
+                  </ul>
+
+
+              <a id="txt"  >
+                        <li id="txt"  class="border-bottom list-group-item" data-toggle="collapse" data-target="#navbarToggleExternalContent2" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-graduation-cap"></i>&nbsp;Information de Formateur <i class="fa fa-caret-down"></i>
+                      </li>
+                    </a>
+                    <ul class="collapse  nav-tabs" id="navbarToggleExternalContent2">
+                              <li id="txt" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  style="margin-left:-40px;margin-bottom:8px;padding:8px; padding-left:30px;" class=""><a id="txt" routerLink="/gerant/ajouterform" ><i class="fa fa-user-plus"></i>&nbsp; Ajouter un Formateur</a></li>
+
+                            <li [routerLinkActiveOptions]="{exact:true}" id="txt"routerLinkActive="active" style="margin-left:-40px;margin-bottom:8px;padding:8px;padding-left:30px;" > <a  id="txt" routerLink="/gerant/filterform" > <i class="fa fa-info-circle"></i>&nbsp; Détails de Formateur</a></li>
+                            
+                          </ul>
+
+            
+           
+        </ul>
+    </div> 
+    
+</div>
+
+
+</div>
+<router-outlet></router-outlet>

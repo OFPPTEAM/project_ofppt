@@ -1,0 +1,26 @@
+<div  class="groupID card mb-5 mt-4 bg-white" >
+  <h4 align="center" class="text-success">Information de Stagiaire </h4>
+    <h6  ><i class="fa fa-search"></i> Sélectionner les critères</h6><hr>
+    <table >
+      <tr>
+         <th style="padding-left:100px;padding:10px;">Group :</th>
+      </tr>
+      <tr>
+        
+        <td><select   style="width:150px;" class="form-control" [(ngModel)]="id" >
+            <option *ngFor="let i of servicegerant.group">{{i.GroupID}}</option>
+          </select></td>
+          
+      </tr>
+      <tr>
+        <td  colspan="2">
+          <button  [routerLink]="['/gerant/filterstag/liststagiaire',{group:id}]" style="margin-left:61%" class="btn btn-success mt-3" (click)="refresh()">
+            <i class="fa fa-search"></i> Search</button></td>
+        
+
+      </tr>
+    </table>
+
+</div>
+
+<router-outlet></router-outlet>

@@ -14,9 +14,9 @@
         <tbody>
           <tr *ngFor="let a of etablissementsService.listFiliere; let i = index">
             <th scope="row">{{i+1}}</th>
-            <td><a [routerLink]="['/affichagechoix',{choix:a.nom_filier}]" >{{a.nom_filier}}</a></td>
-            <td>{{a.nomEtablissement}}</td>
-            <td>{{a.niveau}}</td>
+            <td><a [routerLink]="['/affichagechoix',{choix:a.NomFilier}]" >{{a.NomFilier}}</a></td>
+            <td>{{a.NomEtablissement}}</td>
+            <td>{{a.Niveau}}</td>
           </tr>
         </tbody>
       </table>

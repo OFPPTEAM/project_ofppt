@@ -4,7 +4,7 @@
         <h5><label>Veuillez choisir une Etablisement :</label></h5>
 
         <select class="form-control" [(ngModel)]="Nometabl">
-            <option *ngFor="let a of etablissementsService.listetablis" > {{a.nomEtablissement}}</option>
+            <option *ngFor="let a of etablissementsService.listetablis" > {{a.NomEtablissement}}</option>
           </select>
           <div class="mt-5 ml-5">
             <input [routerLink]="['/choixfiliere',{choix:Nometabl}]" type="button" value="Suivant" class="btn btn-primary">

@@ -11,6 +11,7 @@ export class EtablissementsService {
   listFiliere:any[]=[];
   listModule:any[]=[];
   listfiliere:any[]=[];
+  listregion:any[]=[];
 
   discription:any;
 
@@ -21,59 +22,64 @@ getlistetabli(id)
 {
    if(id!='Nord' && id!='Sud')
    {
-    this.http.get('http://localhost:50204/api/Etablissement').map((data:Response)=>{
+    this.http.get('http://localhost:52195/api/Etablissements').map((data:Response)=>{
       return data.json();
     }).toPromise().then(x=>{
       this.listetablis= x;
     })
    }
    else{
-    this.http.get('http://localhost:50204/api/Etablissement').map((data:Response)=>{
+    this.http.get('http://localhost:52195/api/Etablissements').map((data:Response)=>{
       return data.json();
     }).toPromise().then(x=>{
       this.listetablis= this.filterByRegion(x,id);
     })
    }
 }
+filterByRegion = (etabTable:any[],id:string)=>
+etabTable.filter(x => x.Region === id);
+
+
+
 
 getlistfiliere(ID)
 {
-  this.http.get('http://localhost:50204/api/EtaFiliere').map((data:Response)=>{
+  this.http.get('http://localhost:52195/api/EtablissementFilieres').map((data:Response)=>{
       return data.json();
     }).toPromise().then(x=>{
       this.listFiliere= this.filterfilier(x,ID);
     })
 }
+filterfilier = (filiertable:any[],ID:string)=>
+filiertable.filter(x => x.NomEtablissement === ID);
+
+
+
 
 getlistmodule(ide)
   {
-    this.http.get('http://localhost:50204/api/Modules').map((data:Response)=>{
+    this.http.get('http://localhost:52195/api/Modules').map((data:Response)=>{
       return data.json();
     }).toPromise().then(x=>{
       this.listModule = this.filterModule(x,ide);
     })
   }
+  filterModule = (Moduletable:any[],ide:string) =>
+  Moduletable.filter(x => x.NomFiliere === ide);
+
+
 
   getfiliere(filiere)
   {
-    this.http.get('http://localhost:50204/api/filiere').map((data:Response)=>{
+    this.http.get('http://localhost:52195/api/filieres').map((data:Response)=>{
       return data.json();
     }).toPromise().then(x=>{
       this.listfiliere = this.filternom(x,filiere)
     })
   }
-
-  filterModule = (Moduletable:any[],ide:string) =>
-  Moduletable.filter(x => x.nom_filiere === ide);
-
-filterByRegion = (etabTable:any[],id:string)=>
-etabTable.filter(x => x.region === id);
-
-
-filterfilier = (filiertable:any[],ID:string)=>
-filiertable.filter(x => x.nomEtablissement === ID);
-
 filternom = (filieretable:any[],filiere:string)=>
-  filieretable.filter(x => x.nom_filiere === filiere);
+  filieretable.filter(x => x.Nomfiliere === filiere);
+
+
 
 }

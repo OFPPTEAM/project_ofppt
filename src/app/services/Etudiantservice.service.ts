@@ -16,11 +16,21 @@ export class EtudiantserviceService {
 
   constructor(private http:Http) { }
 
+<<<<<<< HEAD
+  // postEtudiante(etu : Utilisateur)
+  // {
+  //   var body =JSON.stringify(etu);
+  //   var headerOptions=new Headers ({'Content-Type':'application/json',"Authorization":localStorage.getItem('token')});
+  //   var requestOptions=new RequestOptions({method:RequestMethod.Post,headers:headerOptions});
+  //   return this.http.post('http://localhost:50204/api/user',body,requestOptions).map(p=>p.json());
+  // }
+=======
   getUser(id:string){
     this.http.get('http://localhost:52195/api/Stagiaires/'+id).map((data:Response)=>{
       return data.json();
     }).toPromise().then( x=> {this.user = x;})
   }
+>>>>>>> origin/master
 
   getNotifications(){
     this.http.get('http://localhost:52195/api/cours/').map((data:Response)=>{
