@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EtablissementsService } from '../services/etablissements.service';
 
 @Component({
   selector: 'app-espaceeta',
@@ -7,15 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EspaceetaComponent implements OnInit {
 
-choix:string;
+choix:string='choix';
 Verifie:boolean;
+listregion=['choix','Nord','Sud'];
 
-  constructor( ) {
+  constructor(private etablissementsService:EtablissementsService) {
 
   }
 
   ngOnInit() {
-
   }
 
   verifierChoix()
