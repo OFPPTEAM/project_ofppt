@@ -17,13 +17,13 @@ export class EtudiantserviceService {
   Etudiantlist:Etudiant[];
   constructor(private http:Http) { }
 
-  postEtudiante(etu : Utilisateur)
-  {
-    var body =JSON.stringify(etu);
-    var headerOptions=new Headers ({'Content-Type':'application/json',"Authorization":localStorage.getItem('token')});
-    var requestOptions=new RequestOptions({method:RequestMethod.Post,headers:headerOptions});
-    return this.http.post('http://localhost:50204/api/user',body,requestOptions).map(p=>p.json());
-  }
+  // postEtudiante(etu : Utilisateur)
+  // {
+  //   var body =JSON.stringify(etu);
+  //   var headerOptions=new Headers ({'Content-Type':'application/json',"Authorization":localStorage.getItem('token')});
+  //   var requestOptions=new RequestOptions({method:RequestMethod.Post,headers:headerOptions});
+  //   return this.http.post('http://localhost:50204/api/user',body,requestOptions).map(p=>p.json());
+  // }
 
 
 }

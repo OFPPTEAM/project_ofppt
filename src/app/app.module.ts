@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import {HttpModule} from '@angular/http'
 import {FormsModule} from '@angular/forms'
+import { RouterLinkActive } from '@angular/router';
 
 import { Routes } from '@angular/router';
 import {ForumsService } from '../app/services/forums.service'
@@ -39,6 +40,22 @@ import { PosteComponent } from './Disscusion/poste/poste.component';
 
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './espacedep/login/login.component';
+import { GerantComponent } from './espaceger/gerant/gerant.component';
+import { FiltrerstagComponent } from './espaceger/filtrerstag/filtrerstag.component';
+import { NotificationgerComponent } from './espaceger/notificationger/notificationger.component';
+import { AjouterstagComponent } from './espaceger/ajouterstag/ajouterstag.component';
+import { AjouterformComponent } from './espaceger/ajouterform/ajouterform.component';
+import { ServicegerantService } from './espaceger/servicegerant.service';
+import { NbNotification } from './espaceger/GerantPipe/NbNotification.pipe';
+import { FilterDemandes } from './espaceger/GerantPipe/FilterNotification.pipe';
+import { CapitalizePipe } from './espaceger/GerantPipe/Capitale.pipe';
+import { SortbyDate } from './espaceger/GerantPipe/TrierParDate.pipe';
+import { CheckNotif } from './espaceger/GerantPipe/checkNotification.pipe';
+import { GetEtudiant } from './espaceger/GerantPipe/GetEtudiant.pipe';
+import { FilterformComponent } from './espaceger/filterform/filterform.component';
+import { ListStagComponent } from './espaceger/list-stag/list-stag.component';
+import { ListFormaComponent } from './espaceger/list-forma/list-forma.component';
+import { GetGerant } from './espaceger/GerantPipe/getGerant.pipe';
 
 
 
@@ -149,7 +166,39 @@ const routes: Routes = [
   {
     path: 'affichagechoix', component: AffichagechoixComponent
 
-  }
+  },
+  {
+    path: 'gerant', component: GerantComponent , children : 
+    [
+      {
+        path:'' ,redirectTo :'/gerant/notificationger',pathMatch:'full'
+      },
+      {
+        path :'filterstag',component:FiltrerstagComponent ,children:
+        [
+          {
+          path:'liststagiaire',component:ListStagComponent
+        }
+      ]
+      },
+      {
+        path:'notificationger',component:NotificationgerComponent
+      },
+      {
+        path:'ajouterstag',component:AjouterstagComponent
+      },
+      {
+        path:'ajouterform',component:AjouterformComponent
+      },
+      {
+        path:'filterform',component:FilterformComponent,children:
+        [{
+          path:'listForma',component:ListFormaComponent
+        }]
+      }
+    ]
+  },
+  
 
 
 ];
@@ -192,7 +241,24 @@ const routes: Routes = [
     ChoixfiliereComponent,
     AffichagechoixComponent,
     EspacegerComponent,
-    LoginComponent
+    LoginComponent,
+    GerantComponent,
+    FiltrerstagComponent,
+    NotificationgerComponent,
+    AjouterstagComponent,
+    AjouterformComponent,
+    NbNotification,
+    FilterDemandes,
+    CapitalizePipe,
+    SortbyDate,
+    CheckNotif,
+    GetEtudiant,
+    FilterformComponent,
+    ListStagComponent,
+    ListFormaComponent,
+    GetGerant
+
+    
 
 
   ],
@@ -200,7 +266,7 @@ const routes: Routes = [
     BrowserModule, RouterModule.forRoot(routes) ,HttpModule,FormsModule
 
   ],
-  providers: [],
+  providers: [ServicegerantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

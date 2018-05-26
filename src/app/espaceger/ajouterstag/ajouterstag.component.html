@@ -1,0 +1,76 @@
+<div class="container col-md-6 jumbotron">
+<form #ajouterstaform="ngForm" (ngSubmit)="OnSubmit(ajouterstaform)"   >
+
+
+    <input name="Nom" #Nom="ngModel" [(ngModel)]="Stagiaire.Nom" 
+     class="form-control" placeholder="Enter le Nom" required> 
+
+    <input type="text" required #Prenom="ngModel" name="Prenom" 
+     [(ngModel)]="Stagiaire.Prenom" class="form-control" placeholder="Enter le Prenom">
+
+    <input type="date" required #Datenaiss="ngModel" name="Datenaiss" 
+     [(ngModel)]="Stagiaire.DateNaiss" class="form-control" >
+
+    <input type="text" required class="form-control" placeholder="Enter Votre adresse ...correct"
+     #Addresse="ngModel" name="Addresse"  [(ngModel)]="Stagiaire.CinStagaire">
+       
+    <input type="text" class="form-control"  required  #Cin="ngModel" name="Cin" 
+     [(ngModel)]="Stagiaire.CinStagaire" class="form-control" placeholder="Entrer Votre CIN">
+
+        <input type="text" required  #GroupID="ngModel" name="GroupID" 
+         [(ngModel)]="Stagiaire.GroupID" class="form-control" placeholder="Entrer Group ID ">
+
+        <input type="text"  required  #GroupAnnee="ngModel" name="GroupAnnee"
+          [(ngModel)]="Stagiaire.GroupAnnee" class="form-control" placeholder="Entrer Votre Anneé scolaire">
+
+        <!-- <input type="text"  required  #GroupAnnee="ngModel" name="GroupAnnee" 
+         [(ngModel)]="Stagiaire.CinStagaire" class="form-control" placeholder="Entrer Votre Anneé scolaire">
+ -->
+
+
+        
+        
+          <!-- <td><select name="sexe"  style="width:50%;" class="form-control ml-5" id="sexe">
+            <option value="pardefault">Sexe</option>
+          <option value="Femme">Femme</option>
+          <option value="Homme" >Homme</option>
+        </select></td> -->
+
+      <!-- <td><select name="annescolaire" class="form-control" style="width:60%;" id="annecolaire">
+        <option value="2017/2018">2017/2018</option>
+        <option value="2018/2019">2018/2019</option>
+        <option value="2019/2020">2019/2020</option>
+        <option value="2020/2021">2020/2021</option>
+        <option value="2021/2022">2021/2022</option>
+        <option value="2022/2023">2022/2023</option>
+        <option value="2023/2024">2023/2024</option>
+        <option value="2024/2025">2024/2025</option>
+        <option value="2025/2026">2025/2026</option>
+        <option value="2026/2027">2026/2027</option>
+        <option value="2027/2028">2027/2028</option>
+        <option value="2028/2029">2028/2029</option>
+        <option value="2029/2030">2029/2030</option>
+        <option value="2030/2031">2030/2031</option>
+        <option value="2031/2032">2031/2032</option>
+        <option value="2032/2033">2032/2033</option>
+        <option value="2033/2034">2033/2034</option>
+        <option value="2034/2035">2034/2035</option>
+        <option value="2035/2036">2035/2036</option>
+        <option value="2036/2037">2036/2037</option>
+        <option value="2037/2038">2037/2038</option>
+        
+      </select></td> -->
+      <!-- </tr>
+        <tr><th><label for="filiere">Filiére :</label> </th> <th><label for="group" class="ml-5">Group :</label></th></tr>
+        <tr>
+          <td><select class="form-control" name="filiere" id="filiere">
+          <option value="pardefault">Filiére</option></select></td>
+        <td><select name="group" style="width:50%;" id="group" class="form-control ml-5"></select></td>
+        </tr> -->
+
+  
+        <button [disabled]="!ajouterstaform.valid"  
+          style="float: right;" class="btn btn-success" type="submit">Ajouter</button>
+          <button class="btn btn-primary" (click)="resertform(ajouterstaform)">Reset</button>
+
+</form></div>
