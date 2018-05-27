@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { Router } from '@angular/router';
-=======
->>>>>>> origin/master
 
 @Component({
   selector: 'app-home',
@@ -11,7 +8,6 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-<<<<<<< HEAD
   constructor(private router:Router) { }
 
    ngOnInit() {
@@ -22,11 +18,4 @@ export class HomeComponent implements OnInit {
   //   localStorage.removeItem('userToken');
   //   this.router.navigate(['/espacedep/utilisateur/Signin']);
   // }
-=======
-  constructor() { }
-
-  ngOnInit() {
-  }
-
->>>>>>> origin/master
 }
