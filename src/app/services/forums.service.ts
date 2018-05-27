@@ -22,7 +22,7 @@ export class ForumsService {
 
 getlistforums()
 {
-   this.http.get('http://localhost:50204/api/forum').map((data:Response)=>{console.log(data);
+   this.http.get('http://localhost:56314/api/Forum').map((data:Response)=>{console.log(data);
      return data.json() as Forums[];
      
    }).toPromise().then(x=>{

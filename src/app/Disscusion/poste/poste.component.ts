@@ -30,10 +30,11 @@ Comment:Comment;
     
     form.reset();
     this.Discusion={
-      Id:null,
-      Contenu:'',
+      IdDiscution:null,
+      Nomfiliere:'',
       Sujet:'',
-      Cin:''
+      Contenu:'',
+      CinUtilisateur:'',
     }
 
     
@@ -50,6 +51,7 @@ Comment:Comment;
     this.DiscusionService.poste(form.value)
     .subscribe((data:any)=>
       {
+        if (data.Succeeded==true)
        this.resetForm(form);
        location.reload();
       }
@@ -62,12 +64,11 @@ Comment:Comment;
     
     form.reset();
     this.Comment={
-      Id_Discution:null,
-      Cin :'',
-       Coment :'',
-        Date:null
-  
-      
+      commetId:null,
+      CinUtilisateur:'',
+      IdDiscution:null,
+      Coment:'',
+      datecomment:null,
     }
   }
 
@@ -78,7 +79,7 @@ postcomment(form:NgForm)
   this.CommentService.postecomment(form.value)
   .subscribe((data:any)=>
     {
-      
+      if (data.Succeeded==true)
      this.resetcomment(form);
      location.reload();
      

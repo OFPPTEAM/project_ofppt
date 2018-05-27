@@ -19,17 +19,19 @@ listcomment:Comment[]=[];
   postecomment(post:Comment)
   {
     const body:Comment={
-      Id_Discution:post.Id_Discution,
-      Cin :post.Cin,
-      Coment :post.Coment,
-      Date:post.Date
+      commetId:post.commetId,
+      CinUtilisateur :post.CinUtilisateur,
+      IdDiscution:post.IdDiscution,
+      Coment:post.Coment,
+      datecomment:post.datecomment
     }
-    return this.http.post('http://localhost:50204/api/Comment',body); 
+    return this.http.post('http://localhost:56314/api/Comments',body); 
   }
 
 
   getcomment(){
-    this.http.get('http://localhost:50204/api/Comment').map((data:Response)=>{console.log(data);
+    this.http.get('http://localhost:56314/api/Comments').map((data:Response)=>
+    {console.log(data);
     return data.json() as Comment[];
   }).toPromise().then(x=>{
     this.listcomment=x;

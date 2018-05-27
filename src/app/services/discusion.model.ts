@@ -1,8 +1,8 @@
 export class Discusion {
 
-    Id:number;
-    Contenu:string;
+    IdDiscution:number;
+    Nomfiliere:string;
     Sujet:string;
-   Cin:string
-
+    Contenu:string;
+    CinUtilisateur:string;
 }

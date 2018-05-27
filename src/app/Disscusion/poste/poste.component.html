@@ -11,11 +11,14 @@
 <form name="form1" class="Statut-form" #StatutForm="ngForm" (ngSubmit)="onSubmit(StatutForm)" >
     <div class="form-group">
    <label for="formGroupExampleInput2">Cin d'Utilisateur:</label>
-        <input name="Cin" #Cin="ngModel" [(ngModel)]= "Discusion.Cin" type="text" class="form-control col-md-4" id="formGroupExampleInput2" placeholder="Sujet" required> 
+        <input name="Nomfiliere" #Nomfiliere="ngModel" [(ngModel)]= "Discusion.Nomfiliere" type="text" class="form-control col-md-4" id="formGroupExampleInput2" placeholder="Nomfiliere" required> 
         <label >Sujet:</label>
         <input name="Sujet" #Sujet="ngModel" [(ngModel)]= "Discusion.Sujet" type="text" class="form-control col-md-4"  placeholder="Sujet" required>
       <label >Poser vos Qestion</label>
-      <input name="Contenu" #Contenu="ngModel" [(ngModel)]= "Discusion.Contenu" type="text" class="form-control"  placeholder="poste" required>
+      <input name="Contenu" #Contenu="ngModel" [(ngModel)]= "Discusion.Contenu" type="text" class="form-control"  placeholder="Contenu" required>
+      <label >Poser vos Qestion</label>
+      <input name="CinUtilisateur" #CinUtilisateur="ngModel" [(ngModel)]= "Discusion.CinUtilisateur" type="text" class="form-control"  placeholder="CinUtilisateur" required>
+      
     </div>
     <button [disabled]="!StatutForm.valid" class="btn btn-primary" style="margin-left:80%" type="submit">poste</button>
    
@@ -26,38 +29,39 @@
     <div class="container" *ngFor="let a of DiscusionService.listDiscusion
      | paginate :{ itemsPerPage:5,currentPage :p}">
       <h1 class="display-4">Jean</h1>
-      <p   class="lead">{{a.contenu}}</p>
-      <small  >{{a.sujet}}</small>
+      <p   class="lead">{{a.Contenu}}</p>
+      <small  >{{a.Sujet}}</small>
       
       <div class="list-group">
 
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
 
-            <div  class="d-flex w-100 justify-content-between">
+            <div *ngFor="let a of CommentService.listcomment" class="d-flex w-100 justify-content-between">
               <img src="/assets/img/icon3.png" class="rounded-circle" 
               alt="" srcset="" width="70" height="60">
-              <h5 class="mb-1">Michel45</h5>
-              <small>3 days ago</small>
+              <h5 class="mb-1">{{a.Cin}}</h5>
+              <small>{{a.datecomment}}</small>
             </div>
 
-            <small class="mb-1"></small>
+            <small class="mb-1">{{a.Coment}}</small>
           </a> </div>
           <form class="user-form" #CommentForm="ngForm" (ngSubmit)="postcomment(CommentForm)">
-            <div class="form-row">
           
-             <div class="form-group col-md-6">
-                    <input class="form-control" name="Cin" #Cin="ngModel" [(ngModel)]= "Comment.Cin" placeholder="UserName" required>
-                   </div>
-          
-               <div class="form-group col-md-6">
-                <input class="form-control" name="Coment" #Coment="ngModel" [(ngModel)]= "Comment.Coment" placeholder="Password" required>
-               </div>
-          
-          
+            <div class="form-group col-md-6">
+              <input class="form-control" name="CinUtilisateur" #CinUtilisateur="ngModel" [(ngModel)]= "Comment.CinUtilisateur" placeholder="CinUtilisateur" required>
             </div>
-           <div class="form-group">
-              <input class="form-control" name="Date" #Date="ngModel" [(ngModel)]= "Comment.Date" placeholder="nom" required>
-            </div>
+      <div class="form-group col-md-6">
+        <input class="form-control" name="IdDiscution" #IdDiscution="ngModel" [(ngModel)]= "Comment.IdDiscution" placeholder="IdDiscution" required>
+      </div>
+      <div class="form-group col-md-6">
+      <input class="form-control" name="datecomment" #datecomment="ngModel" [(ngModel)]= "Comment.datecomment" placeholder="datecomment" required>
+      </div>
+      <div class="form-group ">
+      <textarea class="form-control" name="comment" #comment="ngModel" [(ngModel)]= "Comment.comment" placeholder="comment" required rows="4"></textarea>
+     </div>
+          
+          
+         
            
          <div class="form-row">
                     <div class="form-group col-md-6">
@@ -65,10 +69,7 @@
                     </div>
           
           
-                    <div class="form-group col-md-6">
-                      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)='resetcomment(CommentForm)'>
-                          <i style="color:white" class="fa fa-redo-alt"></i>reset</button>
-                     </div>
+                    
           
                     </div>
             </form>

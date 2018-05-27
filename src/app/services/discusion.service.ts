@@ -12,7 +12,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class DiscusionService {
   
-  readonly rootUrl='http://localhost:50204';
+  readonly rootUrl='http://localhost:56314';
   listDiscusion:Discusion[]=[];
 
   constructor(private http:Http) { }
@@ -21,22 +21,23 @@ export class DiscusionService {
   poste(post:Discusion)
   {
     const body:Discusion={
-      Id:post.Id,
-      Contenu:post.Contenu,
+      
+      IdDiscution:post.IdDiscution,
+      Nomfiliere:post.Nomfiliere,
       Sujet:post.Sujet,
-      Cin:post.Cin,
-
+      Contenu:post.Contenu,
+      CinUtilisateur:post.CinUtilisateur,
       
   
     }
-    return this.http.post('http://localhost:50204/api/Discusion',body); 
+    return this.http.post('http://localhost:56314/api/Discusions',body); 
   }
 
 
 
   getlistdiscusion()
 {
-   this.http.get(this.rootUrl+'/api/Discusion').map((data:Response)=>{console.log(data);
+   this.http.get('http://localhost:56314/api/Discusions').map((data:Response)=>{console.log(data);
      return data.json() as Discusion[];
    }).toPromise().then(x=>{
      this.listDiscusion=x;

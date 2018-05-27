@@ -1,8 +1,9 @@
 
 
 export class Comment {
-     Id_Discution :number;
-     Cin :string;
+    commetId:number;
+    CinUtilisateur :string;
+     IdDiscution:number;
      Coment :string;
-     Date:Date;
+     datecomment:Date;
 }
