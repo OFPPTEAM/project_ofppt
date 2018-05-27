@@ -16,6 +16,7 @@
 {
     margin-left: -14%;
     margin-top: -18%;
+<<<<<<< HEAD
 }
 .carousel-item {
     height: 65vh;
@@ -26,3 +27,6 @@
     -o-background-size: cover;
     background-size: cover;
   }
+=======
+}
+>>>>>>> origin/master

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute,Params} from '@angular/router';
+import { EtablissementsService } from '../../services/etablissements.service';
 
 @Component({
   selector: 'app-choixfiliere',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChoixfiliereComponent implements OnInit {
 
-  constructor() { }
+  constructor(public route:ActivatedRoute,private etablissementsService:EtablissementsService) {
+
+  }
+  Nometabl:any;
+  filiere:string;
 
   ngOnInit() {
+    this.Nometabl=this.route.snapshot.params['choix'];
+    this.etablissementsService.getlistfiliere(this.Nometabl);
   }
 
 }

@@ -4,6 +4,7 @@
 
   <div class="image">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<<<<<<< HEAD
 
 
           <a routerLink="/home" routerLinkActive="active" class="navbar-brand" href="#">&nbsp; <i class="fa fa-opera"></i>FPPT Team</a>
@@ -45,13 +46,53 @@
      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
               <button [ngClass]="totalclass" class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-user-circle" (click)="Logout()"></i></button>
 
+=======
+      
+            
+          <a routerLink="/home"  class="navbar-brand" href="#">OFPPT Team</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item" *ngIf="!isFormateur">
+                <a routerLink="/group" class="nav-link" href="#">Group</a>
+              </li>
+              <li class="nav-item" *ngIf="isFormateur">
+                <a routerLink="/groups" class="nav-link">Groups</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/forum" class="nav-link" href="#">Forum</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Demande
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a routerLink="/attestation" class="dropdown-item" href="#">Attestation D'étudiant(e)</a>
+                  <a routerLink="/badge" class="dropdown-item" href="#">Demande du badge</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Contacter nous</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/contact" class="nav-link " href="#">Contacter nous.</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-user-circle"></i></button>
+             
+>>>>>>> origin/master
             </form>
           </div>
         </nav>
 
- <router-outlet></router-outlet>
+ <router-outlet></router-outlet> 
+ 
 
+      
 
-
-
-
+        
+  

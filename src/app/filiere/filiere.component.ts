@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { NgModel } from '@angular/forms';
 import { ForumsService } from '../services/forums.service';
+=======
+>>>>>>> origin/master
 
 @Component({
   selector: 'app-filiere',
@@ -9,6 +12,7 @@ import { ForumsService } from '../services/forums.service';
 })
 export class FiliereComponent implements OnInit {
 
+<<<<<<< HEAD
   term:string='';
 
   constructor(private ForumsService:ForumsService) { 
@@ -22,4 +26,11 @@ export class FiliereComponent implements OnInit {
 
   
    
+=======
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+>>>>>>> origin/master
 }

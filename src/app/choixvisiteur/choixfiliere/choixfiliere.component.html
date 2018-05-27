@@ -10,35 +10,17 @@
             <th scope="col">Niveau</th>
           </tr>
         </thead>
+
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td><a href="">Devolepment Informatique</a></td>
-            <td>Lalla aicha</td>
-            <td>Technicien specialisé</td>
+          <tr *ngFor="let a of etablissementsService.listFiliere; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td><a [routerLink]="['/affichagechoix',{choix:a.NomFilier}]" >{{a.NomFilier}}</a></td>
+            <td>{{a.NomEtablissement}}</td>
+            <td>{{a.Niveau}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td><a routerLink="/affichagechoix" href="">Commerce</a></td>
-            <td>Lalla aicha</td>
-            <td>Technicien specialisé</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td><a href="">Gestion</a></td>
-            <td>the Bird</td>
-            <td>Technicien specialisé</td>
-          </tr>
-          <tr>
-              <th scope="row">3</th>
-              <td><a href="">Infographie</a></td>
-              <td>ISAG</td>
-              <td>Technicien specialisé</td>
-            </tr>
         </tbody>
       </table>
-      
-      
+
           </div></div>
 
 

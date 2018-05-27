@@ -1,0 +1,47 @@
+<!-- <div  class="groupID card mb-5 mt-4 bg-white " style="margin-left:22%;margin-right:9%; padding:10px"  >
+  <h4 align="center" class="text-success">Information de Formateur </h4>
+    <h6  ><i class="fa fa-search"></i> Sélectionner les critères</h6><hr>
+    <table >
+      <tr>
+        <th >Filliere :</th> 
+      </tr>
+      <tr>
+        <td><select name="profil" style="width:150px;" class="form-control" [(ngModel)]="profil" >
+          <option *ngFor="let item of servicegerant.Formateurs" >{{item.profil}}</option>
+          
+        </select></td>
+   
+      </tr>
+      <tr>
+        <td  colspan="2"><button [routerLink]="['/gerant/filterform/listForma',{Formateur:profil}]" 
+           style="margin-left:61%" class="btn btn-success mt-3"><i class="fa fa-search"></i> Search</button></td>
+        
+
+      </tr>
+    </table>
+
+</div> -->
+  
+<table class="table" style="width: 60%; margin-left: 25%;">
+    
+  <thead class="bg-dark">
+    
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">CIN</th>
+      <th scope="col">Date De Naissance</th>
+      <th scope="col">Profil</th>
+    </tr>
+  </thead>
+  <tbody class="bg-light">
+    <tr *ngFor="let item of servicegerant.Formateurs"   >
+      <td>{{item.Nom}}</td>
+      <td>{{item.Prenom}}</td>
+      <td>{{item.CinFormateur}}</td>
+      <td>{{item.DateNaissance | date:'dd/MM/yyyy'}}</td>
+      <td>{{item.Profil}}</td>
+    </tr>
+  </tbody>
+</table>
+<router-outlet></router-outlet>

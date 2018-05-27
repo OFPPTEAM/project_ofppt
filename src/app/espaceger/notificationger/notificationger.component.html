@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngFor="let item of data.Demandes |filterDemandes:nomE" 
+ class="card mt-1" style="width: 60%; height:fit-content; margin-left: 25%;">
+    <div class="card-header">{{item.DateDemande | date:'dd/MM/yyyy HH:mm' }}
+        <span class="badge badge-success ml-2" *ngIf="item.DateDemande | checkNotif">Nouveau</span></div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+        <p style="font-size: 18px">{{item.Sujet}}</p>
+        <footer class="blockquote-footer">{{item.CinStagaire | getEtudiant:data.Stagiaires}}</footer>
+        </blockquote>
+    </div>
+</div>
+  
+
+ <router-outlet></router-outlet> 
+ 
+
+      
+
+        
+  

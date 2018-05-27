@@ -1,5 +1,7 @@
-import { GroupServService } from './../group-serv.service';
+import { EtudiantserviceService } from './../../services/Etudiantservice.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FormateurService } from '../../services/formateur.service';
 
 @Component({
   selector: 'app-list-stagiaire',
@@ -8,13 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListStagiaireComponent implements OnInit {
 
-  stagiaire: any[];
-
-  constructor() {
-   
+  IdGroup='TDI202';
+  isFormateur = false;
+  constructor (
+    private data: EtudiantserviceService,
+    private active: ActivatedRoute,
+    private dataF: FormateurService
+  ) {
+    this.isFormateur = this.dataF.checkFormateur()
+    if(this.isFormateur) {
+      this.IdGroup = this.active.snapshot.params['id'];
     }
+    this.data.getStagiaire();
+  }
 
   ngOnInit() {
+    
   }
 
 }

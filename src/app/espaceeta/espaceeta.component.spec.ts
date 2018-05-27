@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 import { EspaceetaComponent } from './espaceeta.component';
 
 describe('EspaceetaComponent', () => {

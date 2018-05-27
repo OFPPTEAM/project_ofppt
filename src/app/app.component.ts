@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormateurService } from './services/formateur.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,11 @@ export class AppComponent implements OnInit {
   totalclass={};
   bool=true;
   bool2=false;
+  isFormateur = false;
   
-  constructor(private router:Router) { }
+  constructor(private router:Router,private dataF: FormateurService) {
+    this.isFormateur = this.dataF.checkFormateur();
+   }
  
   ngOnInit() {
     this.mafunction();
@@ -40,7 +44,6 @@ export class AppComponent implements OnInit {
  {
   this.totalclass={
   redclass:this.bool,
-  greenclass:this.bool2
-}
+  greenclass:this.bool2 }
  }
 }
