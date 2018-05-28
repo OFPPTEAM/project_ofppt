@@ -1,5 +1,6 @@
 import { ServicegerantService } from './../servicegerant.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-ajouterform',
@@ -16,9 +17,16 @@ export class AjouterformComponent implements OnInit {
     Profil:""
   }
 
-  constructor(private serviceGerant : ServicegerantService) { }
+  constructor(private serviceGerant : ServicegerantService,
+    public toastr: ToastsManager, vcr: ViewContainerRef) { 
+      this.toastr.setRootViewContainerRef(vcr);
+    }
 
   ngOnInit() {
+  }
+
+  showSuccess() {
+    this.toastr.success('Formateur a été ajouté', 'Succès!');
   }
 
   onSubmit(fo){
@@ -26,6 +34,7 @@ export class AjouterformComponent implements OnInit {
       this.postFormateur(fo.value);
     }
     fo.reset();
+    this.showSuccess();
   }
 
   postFormateur(value){

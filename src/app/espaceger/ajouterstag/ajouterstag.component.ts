@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import {ServicegerantService} from  '../servicegerant.service';
 import { NgForm } from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {Http,Response,Headers,RequestMethod,RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
-
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 
 import {Router} from '@angular/router';
@@ -28,16 +28,18 @@ export class AjouterstagComponent implements OnInit {
     Prenom : ""
   }
 
-  constructor( private serviceGerant : ServicegerantService) {
+  constructor( private serviceGerant : ServicegerantService,
+    public toastr: ToastsManager, vcr: ViewContainerRef) {
     this.serviceGerant.getGroup();
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
   }
 
-  // showInfo() {
-  //   this.Toastr.info('Success message');
-  // }
+  showSuccess() {
+    this.toastr.success('Stagiaire a été ajouté', 'Succès!');
+  }
 
   onSubmit(fo){
     if(fo.valid){
@@ -50,6 +52,7 @@ export class AjouterstagComponent implements OnInit {
       this.Stagiaire.Prenom = fo.value.Prenom;
       this.postStagiaire(this.Stagiaire);
       fo.reset();
+      this.showSuccess();
     }
   }
 

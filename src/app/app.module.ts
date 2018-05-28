@@ -78,7 +78,8 @@ import { GetGroupFormateur } from './group/Group_Pipes/FourmateurCinGroup.pipe';
 import { ListGroupsComponent } from './group/formateur/list-groups/list-groups.component';
 import { FilterGroupes } from './group/Group_Pipes/FourmateurFilterGroup.pipe';
 import { GetDescription } from './choixvisiteur/Etablissement_Pipes/getDescription.pipe';
-
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 const routes: Routes = [
@@ -327,7 +328,8 @@ const routes: Routes = [
 
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes) ,HttpModule,FormsModule,HttpClientModule,NgxPaginationModule
+    BrowserModule, RouterModule.forRoot(routes) ,HttpModule,FormsModule,HttpClientModule,NgxPaginationModule,
+    BrowserAnimationsModule, ToastModule.forRoot()
 
   ],
   providers: [ServicegerantService,EtudiantserviceService,FormateurService,EtablissementsService,
