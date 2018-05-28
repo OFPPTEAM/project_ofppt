@@ -1,3 +1,4 @@
+import { ServicegerantService } from './../servicegerant.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AjouterformComponent implements OnInit {
 
-  constructor() { }
+  Formateur = {
+    CinFormateur : "",
+    DateNaissance : "",
+    Nom : "",
+    Prenom : "",
+    Profil:""
+  }
+
+  constructor(private serviceGerant : ServicegerantService) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(fo){
+    if(fo.valid){
+      this.postFormateur(fo.value);
+    }
+    fo.reset();
+  }
+
+  postFormateur(value){
+    this.serviceGerant.postFormateur(value);
   }
 
 }

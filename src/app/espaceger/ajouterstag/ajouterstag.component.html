@@ -1,76 +1,77 @@
-<div class="container col-md-6 jumbotron">
-<form #ajouterstaform="ngForm" (ngSubmit)="OnSubmit(ajouterstaform)"   >
-
-
-    <input name="Nom" #Nom="ngModel" [(ngModel)]="Stagiaire.Nom" 
-     class="form-control" placeholder="Enter le Nom" required> 
-
-    <input type="text" required #Prenom="ngModel" name="Prenom" 
-     [(ngModel)]="Stagiaire.Prenom" class="form-control" placeholder="Enter le Prenom">
-
-    <input type="date" required #Datenaiss="ngModel" name="Datenaiss" 
-     [(ngModel)]="Stagiaire.DateNaiss" class="form-control" >
-
-    <input type="text" required class="form-control" placeholder="Enter Votre adresse ...correct"
-     #Addresse="ngModel" name="Addresse"  [(ngModel)]="Stagiaire.CinStagaire">
-       
-    <input type="text" class="form-control"  required  #Cin="ngModel" name="Cin" 
-     [(ngModel)]="Stagiaire.CinStagaire" class="form-control" placeholder="Entrer Votre CIN">
-
-        <input type="text" required  #GroupID="ngModel" name="GroupID" 
-         [(ngModel)]="Stagiaire.GroupID" class="form-control" placeholder="Entrer Group ID ">
-
-        <input type="text"  required  #GroupAnnee="ngModel" name="GroupAnnee"
-          [(ngModel)]="Stagiaire.GroupAnnee" class="form-control" placeholder="Entrer Votre Anneé scolaire">
-
-        <!-- <input type="text"  required  #GroupAnnee="ngModel" name="GroupAnnee" 
-         [(ngModel)]="Stagiaire.CinStagaire" class="form-control" placeholder="Entrer Votre Anneé scolaire">
- -->
-
-
-        
-        
-          <!-- <td><select name="sexe"  style="width:50%;" class="form-control ml-5" id="sexe">
-            <option value="pardefault">Sexe</option>
-          <option value="Femme">Femme</option>
-          <option value="Homme" >Homme</option>
-        </select></td> -->
-
-      <!-- <td><select name="annescolaire" class="form-control" style="width:60%;" id="annecolaire">
-        <option value="2017/2018">2017/2018</option>
-        <option value="2018/2019">2018/2019</option>
-        <option value="2019/2020">2019/2020</option>
-        <option value="2020/2021">2020/2021</option>
-        <option value="2021/2022">2021/2022</option>
-        <option value="2022/2023">2022/2023</option>
-        <option value="2023/2024">2023/2024</option>
-        <option value="2024/2025">2024/2025</option>
-        <option value="2025/2026">2025/2026</option>
-        <option value="2026/2027">2026/2027</option>
-        <option value="2027/2028">2027/2028</option>
-        <option value="2028/2029">2028/2029</option>
-        <option value="2029/2030">2029/2030</option>
-        <option value="2030/2031">2030/2031</option>
-        <option value="2031/2032">2031/2032</option>
-        <option value="2032/2033">2032/2033</option>
-        <option value="2033/2034">2033/2034</option>
-        <option value="2034/2035">2034/2035</option>
-        <option value="2035/2036">2035/2036</option>
-        <option value="2036/2037">2036/2037</option>
-        <option value="2037/2038">2037/2038</option>
-        
-      </select></td> -->
-      <!-- </tr>
-        <tr><th><label for="filiere">Filiére :</label> </th> <th><label for="group" class="ml-5">Group :</label></th></tr>
+<a class="btn btn-success waves-light" (click)="showSuccess()" mdbWavesEffect>Success message</a>
+<form #fo="ngForm" (ngSubmit)="onSubmit(fo)">
+    <div  class="groupID card mb-5 mt-4 bg-white" >
+      <h4 align="center" class="text-success">
+        <i class="fa fa-user-plus"></i>&nbsp; Ajouter un Stagiaire</h4>
+      <hr>
+      <table>
         <tr>
-          <td><select class="form-control" name="filiere" id="filiere">
-          <option value="pardefault">Filiére</option></select></td>
-        <td><select name="group" style="width:50%;" id="group" class="form-control ml-5"></select></td>
-        </tr> -->
-
+          <th><label>Nom : <span *ngIf="myNom.errors?.required && myNom.touched" 
+            style="color: crimson">*</span>
+            <span *ngIf="myNom.errors?.minlength && myNom.touched" 
+            style="color: crimson">3 characters min</span></label></th>
   
-        <button [disabled]="!ajouterstaform.valid"  
-          style="float: right;" class="btn btn-success" type="submit">Ajouter</button>
-          <button class="btn btn-primary" (click)="resertform(ajouterstaform)">Reset</button>
+          <th><label>Prénom : <span *ngIf="myPrenom.errors?.required && myPrenom.touched" 
+              style="color: crimson">*</span>
+              <span *ngIf="myPrenom.errors?.minlength && myPrenom.touched" 
+              style="color: crimson">3 characters min</span></label></th>
+  
+          <th><label>Date de Naissance : <span *ngIf="myDate.errors?.required && myDate.touched" 
+            style="color: crimson">*</span></label></th>
+        </tr>
+  
+        <tr>
+          <td><input type="text" required #myNom="ngModel" name="Nom" minlength="3" style="width:80%;"
+            [(ngModel)]="Stagiaire.Nom" class="form-control" placeholder="Nom..." ></td>
+          <td><input type="text" required #myPrenom="ngModel" name="Prenom" minlength="3" style="width:80%;"
+            [(ngModel)]="Stagiaire.Prenom" class="form-control" placeholder="Prenom..."></td> 
+          <td><input type="date" required #myDate="ngModel" name="DateNaiss" style="width:80%;"
+            [(ngModel)]="Stagiaire.DateNaiss" class="form-control"></td>
+        </tr><br>
+  
+        <tr>
+          <th><label>Adresse : <span *ngIf="myAdresse.errors?.required && myAdresse.touched" 
+            style="color: crimson">*</span></label></th>
+        </tr>
 
-</form></div>
+        <tr>
+          <td colspan="2">
+              <input type="text" required #myAdresse="ngModel" name="Adresse" style="width:80%;"
+              [(ngModel)]="Stagiaire.Adresse" class="form-control" placeholder="Adresse...">
+          </td>
+        </tr><br>
+
+        <tr>
+          <th><label>CIN : <span *ngIf="myCin.errors?.required && myCin.touched" 
+            style="color: crimson">*</span>
+            <span *ngIf="myCin.errors?.minlength && myCin.touched" 
+            style="color: crimson">6 characters min</span></label></th>
+  
+          <th><label>Groupe : <span *ngIf="myGroup.errors?.required && myGroup.touched" 
+              style="color: crimson">*</span></label></th>
+        </tr>
+  
+        <tr>
+          <td><input type="text" required #myCin="ngModel" name="CinStagaire" minlength="6" style="width:80%;"
+            [(ngModel)]="Stagiaire.CinStagaire" class="form-control" placeholder="Numero CIN..."></td>
+          <td>
+            <select style="width:80%;" class="form-control" #myGroup="ngModel" 
+              [(ngModel)]="Stagiaire.GroupID" name="GroupID" required>
+              <option hidden>Groupe...</option>
+              <option *ngFor="let i of serviceGerant.group">{{i.GroupID}}</option>
+            </select>
+          </td>
+        </tr>
+  
+        <tr>
+          <td colspan="3"><hr></td>
+        </tr>
+  
+        <tr>
+            <td><button [disabled]="!fo.valid" style="float: left;"
+              class="btn btn-success" type="submit">Ajouter</button></td>
+            <td><button style="float: left;" class="btn btn-primary" type="reset">Reset</button></td>
+        </tr>
+      </table>
+    </div>
+</form>

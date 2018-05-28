@@ -1,33 +1,63 @@
-<div  class="groupID card mb-5 mt-4 bg-white" >
-    <h4 align="center" class="text-success"><i class="fa fa-user-plus"></i>&nbsp; Ajouter un Formateur </h4>
-     <hr>
-      <table  >
-        <tr>
-          <th><label for="nom">Nom :</label> </th><th><label for="prenom">Prénom :</label> </th><th><label for="datenaiss">Date de Naissance :</label> </th>
-        </tr>
-        <tr>
-          <td><input style="width:60%;" id="nom" name="nom" type="text"class="form-control" placeholder="Enter le Nom"></td> 
-          <td><input type="text" id="prenom" name="prenom" style="width:60%;" class="form-control" placeholder="Enter le Prenom"></td> 
-          <td><input type="date" id="datenaiss" name="datenaiss" class="form-control" ></td>
-        </tr>
-        <tr>
-          <th><label for="adresse">Adresse :</label></th> 
-        </tr>
-        <tr><td><input type="text" class="form-control"style="width:150%" placeholder="Enter Votre adresse ...correct" id="adresse" name="adresse"></td></tr>
-        <tr><th><label for="cin">CIN :</label></th><th><label for="sexe" class="ml-5">Sexe : </label></th><th><label for="filiere">Profile Professionel :</label></th></tr>
-        <tr><td><input type="text"  id="cin" name="cin" class="form-control" placeholder="Entrer Votre CIN"></td>
-          <td><select name="sexe"  style="width:50%;" class="form-control ml-5" id="sexe">
-            <option value="pardefault">Sexe</option>
-          <option value="Femme">Femme</option>
-          <option value="Homme" >Homme</option>
-        </select></td><td><select class="form-control" name="filiere" id="filiere">
-          <option value="profil">Filiére</option>
-        <option value="kflsjfkls">jfksdljfk</option></select></td>
-      </tr>
-        
+<form #fo="ngForm" (ngSubmit)="onSubmit(fo)">
+  <div  class="groupID card mb-5 mt-4 bg-white" >
+    <h4 align="center" class="text-success">
+      <i class="fa fa-user-plus"></i>&nbsp; Ajouter un Formateur</h4>
+    <hr>
+    <table>
+      <tr>
+        <th><label>Nom : <span *ngIf="myNom.errors?.required && myNom.touched" 
+          style="color: crimson">*</span>
+          <span *ngIf="myNom.errors?.minlength && myNom.touched" 
+          style="color: crimson">3 characters min</span></label></th>
 
-      <tr><td colspan="3"><hr></td></tr>
-        <tr><td colspan="2" ><button style="float: right;" class="btn btn-success">Ajouter</button></td><td><button class="btn btn-primary">Reset</button></td></tr>
-      </table>
-  
+        <th><label>Prénom : <span *ngIf="myPrenom.errors?.required && myPrenom.touched" 
+            style="color: crimson">*</span>
+            <span *ngIf="myPrenom.errors?.minlength && myPrenom.touched" 
+            style="color: crimson">3 characters min</span></label></th>
+
+        <th><label>Date de Naissance : <span *ngIf="myDate.errors?.required && myDate.touched" 
+          style="color: crimson">*</span></label></th>
+      </tr>
+
+      <tr>
+        <td><input type="text" name="Nom" [(ngModel)]="Formateur.Nom" #myNom="ngModel"
+          style="width:80%;" class="form-control" placeholder="Enter le Nom" minlength="3" required></td>
+        <td><input type="text" name="Prenom" [(ngModel)]="Formateur.Prenom" #myPrenom="ngModel"
+          style="width:80%;" class="form-control" placeholder="Enter le Prenom" minlength="3" required></td> 
+        <td><input type="date" name="DateNaissance" [(ngModel)]="Formateur.DateNaissance" #myDate="ngModel"
+          style="width:80%;" class="form-control" required></td>
+      </tr>
+
+      <br>
+
+      <tr>
+        <th><label>CIN : <span *ngIf="myCin.errors?.required && myCin.touched" 
+          style="color: crimson">*</span>
+          <span *ngIf="myCin.errors?.minlength && myCin.touched" 
+          style="color: crimson">6 characters min</span></label></th>
+
+        <th><label>Profile Professionel : <span *ngIf="myProfil.errors?.required && myProfil.touched" 
+            style="color: crimson">*</span>
+            <span *ngIf="myProfil.errors?.minlength && myProfil.touched" 
+            style="color: crimson">4 characters min</span></label></th>
+      </tr>
+
+      <tr>
+        <td><input type="text" name="CinFormateur" [(ngModel)]="Formateur.CinFormateur" #myCin="ngModel"
+          style="width:80%;" class="form-control" placeholder="Entrer CIN" minlength="6" required></td>
+        <td><input type="text" name="Profil" [(ngModel)]="Formateur.Profil" #myProfil="ngModel"
+          class="form-control" placeholder="Profile" required></td>
+      </tr>
+
+      <tr>
+        <td colspan="3"><hr></td>
+      </tr>
+
+      <tr>
+          <td><button [disabled]="!fo.valid" style="float: left;"
+            class="btn btn-success" type="submit">Ajouter</button></td>
+          <td><button style="float: left;" class="btn btn-primary" type="reset">Reset</button></td>
+      </tr>
+    </table>
   </div>
+</form>

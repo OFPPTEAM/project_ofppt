@@ -22,6 +22,10 @@ export class ServicegerantService {
     return this.url.post('http://localhost:52195/api/stagiaires',body).subscribe();
   }
 
+  postFormateur(body){
+    return this.url.post('http://localhost:52195/api/formateurs',body).subscribe();
+  }
+
   getDemandes()
   {
     this.url.get('http://localhost:52195/api/Demandes').map((data:Response)=>{

@@ -67,7 +67,6 @@ export class NotificationComponent implements OnInit {
   }
   
   deleteNotification(i){
-    console.log(i.DateDiscution);
     const index: number = this.arrayNotif.indexOf(i);
     this.dataF.delete(i.Sujet);
     if (index !== -1) {
